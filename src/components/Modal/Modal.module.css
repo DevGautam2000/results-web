@@ -1,0 +1,121 @@
+.modal {
+  background: rgba(0, 0, 0, 0.85);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: 0.3s pop 0.1s forwards;
+}
+
+.container {
+  position: relative;
+  top: -100px;
+  height: 250px;
+  width: 350px;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 18px;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.cross {
+  position: absolute;
+  color: rgb(245, 96, 153);
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  top: 15px;
+  right: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.cross:hover {
+  background: rgba(0, 0, 0, 0.048);
+}
+
+.ok {
+  position: relative;
+  top: 50px;
+}
+
+.cross:active {
+  transform: scale(0.9);
+}
+.ok:active {
+  transform: scale(0.98);
+}
+
+.message {
+  position: relative;
+  top: 8px;
+}
+
+@media (max-width: 750px) {
+  .container {
+    width: 300px;
+    top: -12px;
+  }
+}
+@media (max-width: 350px) {
+  .container {
+    width: 260px;
+  }
+}
+
+/* Animations to fade the message container in and out */
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}

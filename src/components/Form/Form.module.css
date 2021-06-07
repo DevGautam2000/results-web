@@ -1,0 +1,48 @@
+.form {
+  width: 400px;
+  height: 280px;
+  position: relative;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 2px gray;
+}
+
+.form_container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 85%;
+  padding: 10px;
+  justify-content: space-between;
+  flex-direction: column;
+  color: rgb(245, 96, 153);
+}
+
+.form_style {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(245, 96, 153);
+}
+
+@media (max-width: 750px) {
+  .form {
+    width: 300px;
+  }
+}
+@media (max-width: 350px) {
+  .form {
+    width: 280px;
+  }
+}

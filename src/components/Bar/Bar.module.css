@@ -1,0 +1,45 @@
+.bar {
+  width: 100%;
+  padding: 10px;
+  height: 60px;
+  background: linear-gradient(90deg, rgb(99, 2, 255), rgb(57, 85, 246));
+  color: white;
+  font-size: 18px;
+  letter-spacing: 0.7px;
+  box-shadow: 0 2px 10px rgb(97, 97, 97);
+  display: flex;
+  align-items: center;
+}
+
+.navigateBack {
+  height: 30px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  margin-right: 10px;
+}
+
+.overlay {
+  width: 100%;
+  padding: 10px;
+  height: 180px;
+  background: linear-gradient(90deg, rgb(99, 2, 255), rgb(57, 85, 246));
+  position: relative;
+  z-index: -1;
+}
+
+@media (max-width: 750px) {
+  .title {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    left: -50px;
+  }
+
+  .navigateBack {
+    margin-right: 0;
+    height: 25px;
+    width: 20px;
+  }
+}
