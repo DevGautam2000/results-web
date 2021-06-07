@@ -1,6 +1,6 @@
 .result {
   position: relative;
-  height: 100vh;
+  height: 95vh;
 }
 
 .container {
@@ -17,6 +17,7 @@
   justify-content: center;
   flex-direction: column;
   transform: translateX(-50%);
+  border-radius: 8px;
   overflow: hidden;
 }
 
@@ -32,6 +33,7 @@
   margin-bottom: 10px;
   display: flex;
   align-items: center;
+  border-radius: 8px;
   justify-content: center;
   transform: translateX(-50%);
 }

@@ -49,6 +49,7 @@
   color: white;
   font-size: 12px;
   font-weight: bold;
+  border-radius: 5px;
   background: var(--sub-code-bg-color--);
   flex: 0.2;
 }
@@ -83,6 +84,7 @@
 .int {
   background: var(--int-color--);
   font-family: var(--font--);
+  border-radius: 5px 0 0 5px;
 }
 .ext {
   background: var(--ext-color--);
@@ -95,6 +97,7 @@
 .credit {
   background: var(--credit-color--);
   font-family: var(--font--);
+  border-radius: 0 5px 5px 0;
 }
 
 @media (max-width: 750px) {

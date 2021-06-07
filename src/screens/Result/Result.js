@@ -7,6 +7,8 @@ import Loader from "../../components/Loader/Loader";
 import GPACalc from "../../components/GPA/GPACalc";
 import Modal from "../../components/Modal/Modal";
 import { useHistory } from "react-router-dom";
+import Motion from "../../js/Motion";
+import Footer from "../../components/Footer/Footer";
 
 const Result = ({ location }) => {
   const { regId, periodName, urlPosition } = location.state;
@@ -75,6 +77,7 @@ const Result = ({ location }) => {
             ) : null;
           })}
         </div>
+        <Motion Component={<Footer />} />
       </>
     );
   } else {
