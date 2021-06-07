@@ -27,54 +27,56 @@ export default function Developer() {
   }, []);
 
   return (
-    <div className={style.developer}>
-      <Bar
-        title="Developer"
-        arrowIsVisible={true}
-        overlayHeight={300}
-        path="/"
-        pathName="Home"
-      />
+    <>
+      <div className={style.developer}>
+        <Bar
+          title="Developer"
+          arrowIsVisible={true}
+          overlayHeight={300}
+          path="/"
+          pathName="Home"
+        />
 
-      <Motion
-        Component={
-          <>
-            <img
-              src="https://raw.githubusercontent.com/DevGautam2000/mycv.github.io/master/avatar.jpg"
-              alt="developer_avatar"
-              className={style.avatar}
-            />
-            <span style={{ marginTop: "10px" }}>Gautam Chandra Saha</span>
+        <Motion
+          Component={
+            <>
+              <img
+                src="https://raw.githubusercontent.com/DevGautam2000/mycv.github.io/master/avatar.jpg"
+                alt="developer_avatar"
+                className={style.avatar}
+              />
+              <span style={{ marginTop: "10px" }}>Gautam Chandra Saha</span>
 
-            <div className={style.container}>
-              {developerData.map(({ id, src, link, name }, index) => (
-                <a
-                  key={id}
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <>
-                    <img
-                      id={`tag${index}`}
-                      src={src}
-                      className={style.tags}
-                      alt={name}
-                    />
-                  </>
-                  <div className={style.popup_container}>
-                    <div id={`pop${index}`} className={style.popup}>
-                      {name}
+              <div className={style.container}>
+                {developerData.map(({ id, src, link, name }, index) => (
+                  <a
+                    key={id}
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <>
+                      <img
+                        id={`tag${index}`}
+                        src={src}
+                        className={style.tags}
+                        alt={name}
+                      />
+                    </>
+                    <div className={style.popup_container}>
+                      <div id={`pop${index}`} className={style.popup}>
+                        {name}
+                      </div>
                     </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </>
-        }
-        styles={style.card}
-      />
+                  </a>
+                ))}
+              </div>
+            </>
+          }
+          styles={style.card}
+        />
+      </div>
       <Motion Component={<Footer />} />
-    </div>
+    </>
   );
 }

@@ -45,7 +45,7 @@
 
 @media (max-width: 750px) {
   .card {
-    width: 300px;
+    width: 80vw;
   }
 
   .image {

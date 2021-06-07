@@ -22,7 +22,7 @@ export default function Home() {
           styles={style.card_container}
         />
       </div>
-      <Motion component={<Footer />} />
+      <Motion Component={<Footer />} />
     </>
   );
 }
