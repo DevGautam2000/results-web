@@ -64,11 +64,11 @@
 
 @media (max-width: 750px) {
   .container {
-    width: 320px;
+    width: 95vw;
   }
 
   .infoTag {
-    width: 320px;
+    width: 95vw;
     font-size: 14px;
   }
 

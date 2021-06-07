@@ -5,11 +5,14 @@ import { urlList } from "../../utils/data";
 import DataCard from "../../components/DataCard/DataCard";
 import Loader from "../../components/Loader/Loader";
 import GPACalc from "../../components/GPA/GPACalc";
+import Modal from "../../components/Modal/Modal";
+import { useHistory } from "react-router-dom";
 
 const Result = ({ location }) => {
   const { regId, periodName, urlPosition } = location.state;
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [collection, setCollection] = useState({});
+  const history = useHistory();
 
   useEffect(() => {
     const getData = async () => {
@@ -20,54 +23,71 @@ const Result = ({ location }) => {
         .then((data) => {
           setLoaderIsVisible(false);
           setCollection(data[regId.toString()]);
-        })
-        .catch((err) => alert(err.message));
+        });
     };
 
     getData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const handleClick = () => {
+    history.goBack();
+    // window.location.reload();
+  };
+
+  let displayData;
+
+  if (collection) {
+    displayData = (
+      <>
+        <div className={style.infoTag}>
+          ID:
+          <span>{regId}</span>
+          For
+          <span>{periodName}</span>
+        </div>
+        <div className={style.container}>
+          <div
+            className={style.nameTag}
+            style={{
+              fontWeight: "bold",
+              paddingTop: "15px",
+            }}
+          >
+            {collection.name}
+          </div>
+          <div className={style.nameTag}>
+            <GPACalc data={collection} />
+          </div>
+
+          {Object.keys(collection).map((code) => {
+            return code !== "name" ? (
+              <DataCard
+                key={code}
+                code={code}
+                credit={collection[code]["credit"]}
+                ext={collection[code]["ext"]}
+                grade={collection[code]["grade"]}
+                int={collection[code]["int"]}
+                sub={collection[code]["sub"]}
+                tot={collection[code]["tot"]}
+              />
+            ) : null;
+          })}
+        </div>
+      </>
+    );
+  } else {
+    displayData = (
+      <Modal value={"Registration Id not found"} click={handleClick} />
+    );
+  }
+
   return (
     <div className={style.result}>
       <Bar title="Result" arrowIsVisible={true} path="/form" pathName="Form" />
 
-      <div className={style.infoTag}>
-        ID:
-        <span>{regId}</span>
-        For
-        <span>{periodName}</span>
-      </div>
-
-      <div className={style.container}>
-        <div
-          className={style.nameTag}
-          style={{
-            fontWeight: "bold",
-            paddingTop: "15px",
-          }}
-        >
-          {collection.name}
-        </div>
-        <div className={style.nameTag}>
-          <GPACalc data={collection} />
-        </div>
-
-        {Object.keys(collection).map((code) => {
-          return code !== "name" ? (
-            <DataCard
-              key={code}
-              code={code}
-              credit={collection[code]["credit"]}
-              ext={collection[code]["ext"]}
-              grade={collection[code]["grade"]}
-              int={collection[code]["int"]}
-              sub={collection[code]["sub"]}
-              tot={collection[code]["tot"]}
-            />
-          ) : null;
-        })}
-      </div>
+      {displayData}
       {loaderIsVisible ? <Loader /> : null}
     </div>
   );

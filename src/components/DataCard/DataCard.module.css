@@ -99,11 +99,11 @@
 
 @media (max-width: 750px) {
   .subject_name {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .lower_container span,
   .code {
-    font-size: 10px;
+    font-size: 11px;
   }
 }
