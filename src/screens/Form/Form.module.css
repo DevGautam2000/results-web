@@ -1,4 +1,5 @@
 .form {
   position: relative;
-  height: 95vh;
+  height: fit-content;
+  min-height: 95vh;
 }

@@ -38,11 +38,18 @@
   background: rgb(245, 96, 153);
 }
 
-@media (max-width: 720px) {
+@media (max-width: 718px) {
   .form {
     width: 80vw;
   }
 }
+
+@media (max-width: 640px) {
+  .form {
+    width: 70vw;
+  }
+}
+
 @media (max-width: 350px) {
   .form {
     width: 280px;
