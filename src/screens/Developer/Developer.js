@@ -4,6 +4,7 @@ import style from "./Developer.module.css";
 import { developerData } from "../../utils/data";
 import Motion from "../../js/Motion";
 import Footer from "../../components/Footer/Footer";
+import avatar from "../../assets/avatar.jpg";
 
 export default function Developer() {
   useEffect(() => {
@@ -33,7 +34,6 @@ export default function Developer() {
           title="Developer"
           arrowIsVisible={true}
           overlayHeight={300}
-          path="/"
           pathName="Home"
         />
 
@@ -41,7 +41,7 @@ export default function Developer() {
           Component={
             <>
               <img
-                src="https://raw.githubusercontent.com/DevGautam2000/mycv.github.io/master/avatar.jpg"
+                src={avatar}
                 alt="developer_avatar"
                 className={style.avatar}
               />

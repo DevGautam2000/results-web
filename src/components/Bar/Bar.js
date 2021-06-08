@@ -3,7 +3,7 @@ import style from "./Bar.module.css";
 import arrow from "../../assets/left_arrow.png";
 import { useHistory } from "react-router-dom";
 
-const Bar = ({ title, arrowIsVisible, overlayHeight, path, pathName }) => {
+const Bar = ({ title, arrowIsVisible, overlayHeight, pathName }) => {
   const history = useHistory();
 
   const linkStyle = {
@@ -24,7 +24,7 @@ const Bar = ({ title, arrowIsVisible, overlayHeight, path, pathName }) => {
         {arrowIsVisible ? (
           <div
             onClick={() => {
-              history.push(path);
+              history.goBack();
             }}
             style={linkStyle}
           >

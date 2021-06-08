@@ -38,9 +38,9 @@
   background: rgb(245, 96, 153);
 }
 
-@media (max-width: 750px) {
+@media (max-width: 720px) {
   .form {
-    width: 300px;
+    width: 80vw;
   }
 }
 @media (max-width: 350px) {

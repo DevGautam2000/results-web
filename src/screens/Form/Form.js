@@ -9,7 +9,7 @@ const Form = () => {
   return (
     <>
       <div className={style.form}>
-        <Bar title="Form" arrowIsVisible={true} path="/" pathName="Home" />
+        <Bar title="Form" arrowIsVisible={true} pathName="Home" />
         <Motion Component={<ResultForm />} />
       </div>
 

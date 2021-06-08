@@ -88,7 +88,7 @@ const Result = ({ location }) => {
 
   return (
     <div className={style.result}>
-      <Bar title="Result" arrowIsVisible={true} path="/form" pathName="Form" />
+      <Bar title="Result" arrowIsVisible={true} pathName="Form" />
 
       {displayData}
       {loaderIsVisible ? <Loader /> : null}
