@@ -15,6 +15,7 @@
   position: relative;
   height: 250px;
   width: 350px;
+  top: -10vh;
   border-radius: 10px;
   background: white;
   display: flex;
