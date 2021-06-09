@@ -20,6 +20,14 @@
   margin-right: 10px;
 }
 
+.goto_home {
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  left: -30px;
+}
+
 .overlay {
   width: 100%;
   padding: 10px;
@@ -27,6 +35,11 @@
   background: linear-gradient(90deg, rgb(99, 2, 255), rgb(57, 85, 246));
   position: relative;
   z-index: -1;
+}
+
+.go_back:hover,
+.goto_home:hover {
+  color: rgb(204, 201, 201);
 }
 
 @media (max-width: 750px) {

@@ -100,6 +100,92 @@
   border-radius: 0 5px 5px 0;
 }
 
+/* _________________________________ */
+
+@media (min-width: 1450px) {
+  .data_card {
+    position: relative;
+    width: 155px;
+    height: 170px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+    overflow: hidden;
+    margin: 10px;
+    box-shadow: 2px 1px 18px rgb(136, 135, 135);
+  }
+
+  .upper_container {
+    flex-direction: column;
+    height: 40%;
+    background: #5d69d6;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .grade,
+  .subject_name,
+  .code {
+    position: absolute;
+  }
+
+  .grade {
+    top: 2%;
+    color: white;
+  }
+
+  .code {
+    top: 35%;
+  }
+
+  .subject_name {
+    top: 55%;
+    width: 100%;
+    font-size: 12px;
+    font-weight: bolder;
+    padding: 5px;
+  }
+
+  .lower_container {
+    background-color: rgba(97, 105, 99, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    height: 100%;
+    min-width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    transform: translateY(101%);
+    color: white;
+    font-weight: bold;
+  }
+
+  .data_card:hover .lower_container {
+    transform: translateY(0);
+  }
+
+  .int,
+  .ext,
+  .tot,
+  .credit {
+    width: fit-content;
+    min-width: 70%;
+    margin: auto;
+  }
+
+  .int {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .credit {
+    border-radius: 0 0 5px 5px;
+  }
+}
+
+/* _________________________________ */
 @media (max-width: 750px) {
   .subject_name {
     font-size: 13px;

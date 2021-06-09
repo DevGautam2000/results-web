@@ -38,6 +38,17 @@
   background: rgb(245, 96, 153);
 }
 
+@media (min-width: 1450px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgb(245, 96, 153);
+    border-radius: 8px;
+  }
+}
+
 @media (max-width: 718px) {
   .form {
     width: 80vw;

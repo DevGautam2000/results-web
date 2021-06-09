@@ -3,7 +3,7 @@ import style from "./Bar.module.css";
 import arrow from "../../assets/left_arrow.png";
 import { useHistory } from "react-router-dom";
 
-const Bar = ({ title, arrowIsVisible, overlayHeight, pathName }) => {
+const Bar = ({ title, arrowIsVisible, overlayHeight, pathName, homePath }) => {
   const history = useHistory();
 
   const linkStyle = {
@@ -29,8 +29,22 @@ const Bar = ({ title, arrowIsVisible, overlayHeight, pathName }) => {
             style={linkStyle}
           >
             <img src={arrow} className={style.navigateBack} alt="back_arrow" />
-            <span style={{ marginLeft: "10px" }}>{pathName}</span>
+            <span className={style.go_back} style={{ marginLeft: "10px" }}>
+              {pathName}
+            </span>
           </div>
+        ) : null}
+        {homePath ? (
+          <span
+            className={style.goto_home}
+            onClick={() => {
+              history.goBack();
+              history.goBack();
+              history.goBack();
+            }}
+          >
+            Home
+          </span>
         ) : null}
         {arrowIsVisible ? <span className={style.title}>{title}</span> : title}
       </div>

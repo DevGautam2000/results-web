@@ -61,6 +61,8 @@
 .message {
   position: relative;
   top: 8px;
+  text-align: center;
+  font-size: 15px;
 }
 
 @media (max-width: 750px) {

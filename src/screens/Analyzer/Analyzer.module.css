@@ -1,0 +1,16 @@
+.analyzer {
+  height: 100vh;
+  position: relative;
+}
+
+.chart_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  width: fit-content;
+  min-width: 80vw;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -20%);
+}
