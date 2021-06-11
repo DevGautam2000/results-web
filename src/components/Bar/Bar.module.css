@@ -40,50 +40,46 @@
 
 .source {
   position: absolute;
-  right: 0;
+  right: 2px;
   display: flex;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.source a {
-  cursor: pointer;
-  width: fit-content;
-  text-decoration: none;
+.div {
+  width: 35px;
+  max-width: fit-content;
+  height: 40px;
+  transition: width 0.9s ease-in-out;
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
+  overflow: hidden;
+  margin-right: 20px;
 }
 
-#img {
-  margin: 0 25px;
+.source:hover .div {
+  width: 100%;
+}
+
+.img {
+  margin: 0 10px 0 0;
+
   width: 25px;
   display: inline;
-}
-
-#name {
-  opacity: 0;
-  position: absolute;
-  font-size: 13px;
-  color: gray;
   cursor: pointer;
-  white-space: nowrap;
-  padding: 10px 8px;
-  margin-top: 8px;
-  border-radius: 8px 0 8px 8px;
-  background-color: white;
-  box-shadow: 0 2px 2px rgb(107, 106, 106);
-  transition: all 0.3s ease-in-out;
-  left: 50%;
-  top: 80%;
-  transform: translateX(-105%);
 }
 
-.source a:hover #name {
-  opacity: 1;
+.name {
+  height: 40px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-right: 10px;
+}
+.popup_container {
+  position: relative;
+  width: 100%;
+  height: 60%;
 }
 
 .go_back:hover,
@@ -92,7 +88,7 @@
 }
 
 @media (max-width: 1250px) {
-  #name {
+  .popup_container {
     display: none;
   }
 }

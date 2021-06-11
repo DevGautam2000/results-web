@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./Bar.module.css";
+import "./Bar.css";
 import arrow from "../../assets/left_arrow.png";
 import play from "../../assets/google-play.svg";
 import source from "../../assets/source.svg";
@@ -36,7 +37,7 @@ const Bar = ({
     },
     {
       id: 2,
-      name: "Download Android App",
+      name: "Download",
       img_path: play,
       src: "https://github.com/DevGautam2000/Results/releases",
     },
@@ -74,11 +75,22 @@ const Bar = ({
 
         {sourceTag ? (
           <span className={style.source}>
-            {info.map(({ id, name, img_path, src }) => (
-              <a key={id} href={src} target="_blank" rel="noopener noreferrer">
-                <img id={style.img} src={img_path} alt={name} />
-                <span id={style.name}>{name}</span>
-              </a>
+            {info.map(({ id, name, img_path, src }, index) => (
+              <div key={id} id={`div${index}`} className={style.div}>
+                <a href={src} target="_blank" rel="noopener noreferrer">
+                  <img
+                    id={`img${index}`}
+                    className={style.img}
+                    src={img_path}
+                    alt={name}
+                  />
+                </a>
+                <span className={style.popup_container}>
+                  <span className={style.name} onClick={() => window.open(src)}>
+                    {name}
+                  </span>
+                </span>
+              </div>
             ))}
           </span>
         ) : null}

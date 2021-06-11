@@ -49,26 +49,21 @@ export default function Developer() {
 
               <div className={style.container}>
                 {developerData.map(({ id, src, link, name }, index) => (
-                  <a
-                    key={id}
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <>
-                      <img
-                        id={`tag${index}`}
-                        src={src}
-                        className={style.tags}
-                        alt={name}
-                      />
-                    </>
+                  <div key={id}>
+                    <img
+                      id={`tag${index}`}
+                      src={src}
+                      className={style.tags}
+                      alt={name}
+                      onClick={() => window.open(link)}
+                    />
+
                     <div className={style.popup_container}>
                       <div id={`pop${index}`} className={style.popup}>
                         {name}
                       </div>
                     </div>
-                  </a>
+                  </div>
                 ))}
               </div>
             </>

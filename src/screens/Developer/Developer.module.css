@@ -40,6 +40,7 @@
 .tags {
   width: 30px;
   height: 30px;
+  cursor: pointer;
   margin: 0 8px;
   transition: all 0.3s ease-in-out;
 }
