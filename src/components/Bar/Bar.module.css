@@ -58,6 +58,10 @@
   margin-left: 25px;
 }
 
+.div a:hover {
+  transform: scale(1.1);
+}
+
 .source:hover .div {
   width: 100%;
 }
@@ -75,6 +79,12 @@
   font-size: 15px;
   margin-right: 10px;
 }
+.div a:hover,
+.name:hover {
+  transform: scale(1.1);
+  color: rgb(204, 200, 200);
+}
+
 .popup_container {
   position: relative;
   width: 100%;
@@ -99,8 +109,9 @@
     left: -50px;
   }
 
-  #img {
-    margin: 0 20px;
+  .name:hover {
+    transform: scale(1);
+    color: white;
   }
 
   .navigateBack {
