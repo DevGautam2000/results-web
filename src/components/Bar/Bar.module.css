@@ -100,6 +100,11 @@
   .popup_container {
     display: none;
   }
+  .div a:hover,
+  .name:hover {
+    transform: scale(1);
+    color: white;
+  }
 }
 @media (max-width: 750px) {
   .title {
@@ -107,11 +112,6 @@
     text-align: center;
     position: relative;
     left: -50px;
-  }
-
-  .name:hover {
-    transform: scale(1);
-    color: white;
   }
 
   .navigateBack {
