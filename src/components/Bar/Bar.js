@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./Bar.module.css";
 import "./Bar.css";
 import arrow from "../../assets/left_arrow.png";

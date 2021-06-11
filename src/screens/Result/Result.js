@@ -148,7 +148,6 @@ const Result = ({ location }) => {
             />
           </div>
         ) : null}
-        <Motion Component={<Footer />} />
       </>
     );
   } else {
@@ -163,6 +162,7 @@ const Result = ({ location }) => {
 
       {displayData}
       {loaderIsVisible ? <Loader /> : null}
+      <Motion Component={<Footer />} />
     </div>
   );
 };
