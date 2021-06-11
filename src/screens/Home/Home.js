@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <div className={style.home}>
-        <Bar title="Results" />
+        <Bar title="Results" sourceTag={true} />
 
         <Motion
           Component={homeCardData.map(({ id, name, image, link }) => (

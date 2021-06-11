@@ -1,9 +1,18 @@
 import React from "react";
 import style from "./Bar.module.css";
 import arrow from "../../assets/left_arrow.png";
+import play from "../../assets/google-play.svg";
+import source from "../../assets/source.svg";
 import { useHistory } from "react-router-dom";
 
-const Bar = ({ title, arrowIsVisible, overlayHeight, pathName, homePath }) => {
+const Bar = ({
+  title,
+  arrowIsVisible,
+  overlayHeight,
+  pathName,
+  homePath,
+  sourceTag,
+}) => {
   const history = useHistory();
 
   const linkStyle = {
@@ -17,6 +26,21 @@ const Bar = ({ title, arrowIsVisible, overlayHeight, pathName, homePath }) => {
     cursor: "pointer",
     marginRight: "40px",
   };
+
+  const info = [
+    {
+      id: 1,
+      name: "Source",
+      img_path: source,
+      src: "https://github.com/DevGautam2000/results-web",
+    },
+    {
+      id: 2,
+      name: "Download Android App",
+      img_path: play,
+      src: "https://github.com/DevGautam2000/Results/releases",
+    },
+  ];
 
   return (
     <>
@@ -47,6 +71,17 @@ const Bar = ({ title, arrowIsVisible, overlayHeight, pathName, homePath }) => {
           </span>
         ) : null}
         {arrowIsVisible ? <span className={style.title}>{title}</span> : title}
+
+        {sourceTag ? (
+          <span className={style.source}>
+            {info.map(({ id, name, img_path, src }) => (
+              <a key={id} href={src} target="_blank" rel="noopener noreferrer">
+                <img id={style.img} src={img_path} alt={name} />
+                <span id={style.name}>{name}</span>
+              </a>
+            ))}
+          </span>
+        ) : null}
       </div>
       <div style={{ height: `${overlayHeight}px` }} className={style.overlay} />
     </>
