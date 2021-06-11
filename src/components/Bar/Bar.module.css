@@ -55,7 +55,7 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  margin-right: 20px;
+  margin-left: 25px;
 }
 
 .source:hover .div {
@@ -64,7 +64,6 @@
 
 .img {
   margin: 0 10px 0 0;
-
   width: 25px;
   display: inline;
   cursor: pointer;
