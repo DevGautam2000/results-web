@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Bar from "../../components/Bar/Bar";
 import style from "./Developer.module.css";
 import { developerData } from "../../utils/data";
@@ -9,6 +10,7 @@ import avatar from "../../assets/avatar.jpg";
 
 export default function Developer() {
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     const tags = [];
@@ -82,7 +84,10 @@ export default function Developer() {
       {modalIsVisible ? (
         <Modal
           value="Check your internet connection"
-          click={() => setModalIsVisible(false)}
+          click={() => {
+            setModalIsVisible(false);
+            history.goBack();
+          }}
         />
       ) : null}
     </>

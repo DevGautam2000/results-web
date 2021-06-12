@@ -5,9 +5,11 @@ import Motion from "../../js/Motion";
 import Bar from "../../components/Bar/Bar";
 import Footer from "../../components/Footer/Footer";
 import Modal from "../../components/Modal/Modal";
+import { useHistory } from "react-router-dom";
 
 const Form = () => {
   const [modalIsVisible, setModalIsVisible] = useState(false);
+  const history = useHistory();
 
   useEffect(() => {
     if (!navigator.onLine) {
@@ -26,7 +28,10 @@ const Form = () => {
       {modalIsVisible ? (
         <Modal
           value="Check your internet connection"
-          click={() => setModalIsVisible(false)}
+          click={() => {
+            setModalIsVisible(false);
+            history.goBack();
+          }}
         />
       ) : null}
     </>
