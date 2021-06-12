@@ -69,7 +69,10 @@ export default function Form() {
     let errText = "";
     let isVisible = false;
 
-    if (periodName.length === 0) {
+    if (!navigator.onLine) {
+      errText = "Check internet connection";
+      isVisible = true;
+    } else if (periodName.length === 0) {
       errText = "Select period from list";
       isVisible = true;
     } else if (regId.length === 0) {

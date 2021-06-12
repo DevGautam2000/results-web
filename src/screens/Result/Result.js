@@ -15,6 +15,7 @@ const Result = ({ location }) => {
   const { regId, periodName, urlPosition } = location.state;
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [modalIsVisible, setModalIsVisible] = useState(true);
+
   const [collection, setCollection] = useState({});
   const [lateCollection, setLateCollection] = useState({});
   const history = useHistory();
