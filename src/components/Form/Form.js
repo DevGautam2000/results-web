@@ -7,7 +7,7 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import style from "./Form.module.css";
 import { Button, TextField } from "@material-ui/core";
-import Modal from "../Modal/Modal";
+import Modal from "../../components/Modal/Modal";
 import { periods } from "../../utils/data";
 import { useHistory } from "react-router-dom";
 

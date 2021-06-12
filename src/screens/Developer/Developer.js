@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Bar from "../../components/Bar/Bar";
 import style from "./Developer.module.css";
 import { developerData } from "../../utils/data";
 import Motion from "../../js/Motion";
 import Footer from "../../components/Footer/Footer";
+import Modal from "../../components/Modal/Modal";
 import avatar from "../../assets/avatar.jpg";
 
 export default function Developer() {
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+
   useEffect(() => {
     const tags = [];
     const popups = [];
@@ -25,6 +28,10 @@ export default function Developer() {
         () => (popups[index].style.display = "none")
       );
     });
+
+    if (!navigator.onLine) {
+      setModalIsVisible(true);
+    }
   }, []);
 
   return (
@@ -72,6 +79,12 @@ export default function Developer() {
         />
       </div>
       <Motion Component={<Footer />} />
+      {modalIsVisible ? (
+        <Modal
+          value="Check your internet connection"
+          click={() => setModalIsVisible(false)}
+        />
+      ) : null}
     </>
   );
 }

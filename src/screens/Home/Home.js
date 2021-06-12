@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Motion from "../../js/Motion";
 import Bar from "../../components/Bar/Bar";
 import Card from "../../components/Card/Card";
@@ -6,8 +6,17 @@ import style from "./Home.module.css";
 import { homeCardData } from "../../utils/data";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
+import Modal from "../../components/Modal/Modal";
 
 export default function Home() {
+  const [modalIsVisible, setModalIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (!navigator.onLine) {
+      setModalIsVisible(true);
+    }
+  }, []);
+
   return (
     <>
       <div className={style.home}>
@@ -23,6 +32,12 @@ export default function Home() {
         />
       </div>
       <Motion Component={<Footer />} />
+      {modalIsVisible ? (
+        <Modal
+          value="Check your internet connection"
+          click={() => setModalIsVisible(false)}
+        />
+      ) : null}
     </>
   );
 }
