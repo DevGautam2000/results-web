@@ -1,6 +1,5 @@
 import React from "react";
 import style from "./Bar.module.css";
-import "./Bar.css";
 import arrow from "../../assets/left_arrow.png";
 import play from "../../assets/google-play.svg";
 import source from "../../assets/source.svg";
