@@ -10,7 +10,8 @@
   height: 70vh;
   width: fit-content;
   min-width: 80vw;
-  position: relative;
+  position: absolute;
   left: 50%;
-  transform: translate(-50%, -20%);
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
