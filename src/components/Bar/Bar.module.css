@@ -2,7 +2,7 @@
   width: 100%;
   padding: 10px;
   height: 60px;
-  background: linear-gradient(90deg, rgb(99, 2, 255), rgb(57, 85, 246));
+  background: linear-gradient(90deg, rgb(99, 2, 255) 50%, rgb(57, 85, 246));
   color: white;
   font-size: 18px;
   letter-spacing: 0.7px;
@@ -33,7 +33,7 @@
   width: 100%;
   padding: 10px;
   height: 180px;
-  background: linear-gradient(90deg, rgb(99, 2, 255), rgb(57, 85, 246));
+  background: linear-gradient(90deg, rgb(99, 2, 255) 50%, rgb(57, 85, 246));
   position: relative;
   z-index: -1;
 }
