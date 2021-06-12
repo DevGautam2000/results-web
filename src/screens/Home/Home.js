@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Motion from "../../js/Motion";
 import Bar from "../../components/Bar/Bar";
 import Card from "../../components/Card/Card";
