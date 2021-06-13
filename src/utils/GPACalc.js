@@ -37,5 +37,7 @@ export default function calcGpa(collection) {
     return gpa;
   });
 
-  return finalMarks[finalMarks.length - 2];
+  return finalMarks[finalMarks.length - 2] != null
+    ? finalMarks[finalMarks.length - 2]
+    : finalMarks[finalMarks.length - 1];
 }
