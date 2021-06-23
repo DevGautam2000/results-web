@@ -120,10 +120,6 @@
     word-wrap: break-word;
   }
   
-  .infoTagWeb{
-   whitespace: nowrap; 
-  }
-
   .analyzeTag {
     font-size: 15px;
     height: 35%;
@@ -166,6 +162,7 @@
   .infoTagWeb span:nth-child(2) {
     color: rgb(98, 0, 255);
     font-weight: bold;
+    whitespace: nowrap; 
   }
 
   .nameTag {
