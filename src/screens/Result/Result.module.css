@@ -119,6 +119,10 @@
     background: white;
     word-wrap: break-word;
   }
+  
+  .infoTagWeb{
+   whitespace: nowrap; 
+  }
 
   .analyzeTag {
     font-size: 15px;
