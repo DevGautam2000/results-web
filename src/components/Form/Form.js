@@ -56,7 +56,7 @@ export default function Form() {
 
   const navigateToResult = () => {
     history.push({
-      pathname: "/result",
+      pathname: "/form/result",
       state: {
         regId: regId,
         periodName: periodName,

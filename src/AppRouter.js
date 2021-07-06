@@ -21,9 +21,9 @@ function AppRouter() {
           {loggedIn ? null : <Redirect to="/" />}
           <Route path="/" component={Home} exact />
           <Route path="/form" component={Form} exact />
-          <Route path="/result" component={Result} exact />
+          <Route path="/form/result" component={Result} exact />
           <Route path="/developer" component={Developer} exact />
-          <Route path="/analyzer" component={Analyzer} exact />
+          <Route path="/form/result/analyzer" component={Analyzer} exact />
         </Switch>
       </AnimatePresence>
     </main>

@@ -32,8 +32,8 @@ const Result = ({ location }) => {
           if (!isUnmount) setCollection(data[regId.toString()]);
         });
     };
-    const getLateData = async () => {
-      const url = urlList[urlPosition + 1];
+    const getLateData = async (count) => {
+      const url = urlList[urlPosition + count];
 
       await fetch(url)
         .then((response) => response.json())
@@ -47,13 +47,25 @@ const Result = ({ location }) => {
 
     getData();
 
+    /* later on code
+    
+    if(periodName === `May/June 2021` &&  urlPosition < 7 && !isUnmount){
+
+      if(Number(regId.substring(0, 4)) >= 2020 ) getLateData(1);
+      else getLateData(2);
+    
+    }
+    
+    */
+
     if (
+      //change this to else if
       Number(regId.substring(0, 4)) < 2020 &&
       urlPosition < 7 &&
       periodName !== `Nov/Dec ${regId.substring(0, 4)}` &&
       !isUnmount
     ) {
-      getLateData();
+      getLateData(1);
     } else {
       setLoaderIsVisible(false);
     }
@@ -99,7 +111,7 @@ const Result = ({ location }) => {
             </div>
             <Link
               to={{
-                pathname: "/analyzer",
+                pathname: "/form/result/analyzer",
                 state: {
                   collection: collection,
                   lateCollection: lateCollection,
