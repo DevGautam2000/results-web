@@ -37,7 +37,7 @@ export default function calcGpa(collection, periodName) {
     return gpa;
   });
 
-  return periodName === "March Sem 2021"
-    ? finalMarks[finalMarks.length - 2]
-    : finalMarks[finalMarks.length - 1];
+  return finalMarks[finalMarks.length - 1]
+    ? finalMarks[finalMarks.length - 1]
+    : finalMarks[finalMarks.length - 2];
 }
