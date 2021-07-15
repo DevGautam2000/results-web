@@ -47,18 +47,10 @@ const Result = ({ location }) => {
 
     getData();
 
-    /* later on code
-    
-    if(periodName === `May/June 2021` &&  urlPosition < 7 && !isUnmount){
-
-      if(Number(regId.substring(0, 4)) >= 2020 ) getLateData(1);
+    if (periodName === `May/June 2021` && urlPosition < 7 && !isUnmount) {
+      if (Number(regId.substring(0, 4)) >= 2020) getLateData(1);
       else getLateData(2);
-    
-    }
-    
-    */
-
-    if (
+    } else if (
       //change this to else if
       Number(regId.substring(0, 4)) < 2020 &&
       urlPosition < 7 &&
@@ -116,7 +108,10 @@ const Result = ({ location }) => {
                   collection: collection,
                   lateCollection: lateCollection,
                   periodName: periodName,
-                  latePeriodName: periods[urlPosition + 1],
+                  latePeriodName:
+                    periodName === `May/June 2021`
+                      ? periods[urlPosition + 2]
+                      : periods[urlPosition + 1],
                 },
               }}
               className={style.analyzeTag}
