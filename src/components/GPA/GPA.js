@@ -2,8 +2,8 @@ import React from "react";
 import style from "./GPA.module.css";
 import calcGpa from "../../utils/GPACalc";
 
-export default function GPACalc({ data }) {
-  const gpaPoint = calcGpa(data);
+export default function GPACalc({ data, periodName }) {
+  const gpaPoint = calcGpa(data, periodName);
 
   const classNames = [style.red, style.green, style.pale];
   let pos = 0;

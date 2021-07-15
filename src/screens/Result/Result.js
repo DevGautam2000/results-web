@@ -99,7 +99,7 @@ const Result = ({ location }) => {
               <span>{periodName}</span>
             </div>
             <div className={`${style.nameTag} ${style.gpaTag} `}>
-              <GPA data={collection} />
+              <GPA data={collection} period={periodName} />
             </div>
             <Link
               to={{

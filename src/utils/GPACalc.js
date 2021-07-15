@@ -1,4 +1,4 @@
-export default function calcGpa(collection) {
+export default function calcGpa(collection, periodName) {
   let decPoint, decCredit;
   let totalPoint = 0.0,
     totalCredit = 0.0;
@@ -37,7 +37,7 @@ export default function calcGpa(collection) {
     return gpa;
   });
 
-  return finalMarks[finalMarks.length - 2] != null
+  return periodName === "March Sem 2021"
     ? finalMarks[finalMarks.length - 2]
     : finalMarks[finalMarks.length - 1];
 }
