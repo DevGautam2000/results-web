@@ -35,6 +35,9 @@ const Analyzer = ({ location }) => {
     if (lateGpaPoint === undefined) {
       value = "Oh! looks like you have completed only one semester.";
       visible = true;
+    } else if (gpaPoint === lateGpaPoint) {
+      value = "You seem to be consistent enough.";
+      visible = true;
     } else if (gpaPoint > lateGpaPoint) {
       value = "Hurray! Your performance is better from last semester.";
       visible = true;

@@ -1,4 +1,4 @@
-export default function calcGpa(collection, periodName) {
+export default function calcGpa(collection) {
   let decPoint, decCredit;
   let totalPoint = 0.0,
     totalCredit = 0.0;
