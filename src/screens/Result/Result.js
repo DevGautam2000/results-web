@@ -47,7 +47,14 @@ const Result = ({ location }) => {
 
     getData();
 
-    if (periodName === `May/June 2021` && urlPosition < 7 && !isUnmount) {
+    if (periodName === `Aug Sem 2021` && urlPosition < 7 && !isUnmount) {
+      if (Number(regId.substring(0, 4)) >= 2020) getLateData(2);
+      else setLoaderIsVisible(false);
+    } else if (
+      periodName === `May/June 2021` &&
+      urlPosition < 7 &&
+      !isUnmount
+    ) {
       if (Number(regId.substring(0, 4)) >= 2020) getLateData(1);
       else getLateData(2);
     } else if (
@@ -109,6 +116,7 @@ const Result = ({ location }) => {
                   lateCollection: lateCollection,
                   periodName: periodName,
                   latePeriodName:
+                    periodName === `Aug Sem 2021` ||
                     periodName === `May/June 2021`
                       ? periods[urlPosition + 2]
                       : periods[urlPosition + 1],
