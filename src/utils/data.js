@@ -48,6 +48,7 @@ const developerData = [
 ];
 
 const periods = [
+  "Aug Sem 2021",
   "May/June 2021",
   "March Sem 2021",
   "Nov/Dec 2020",
@@ -60,6 +61,7 @@ const periods = [
 ];
 
 const urlList = [
+  "https://devgautam2000.github.io/results.github.io/json/21.aug_2021.json",
   "https://devgautam2000.github.io/results.github.io/json/21.may_june_2021.json",
   "https://devgautam2000.github.io/results.github.io/json/21_march_semester(first%20year%20only)_2021.json",
   "https://devgautam2000.github.io/results.github.io/json/20.nov_dec_2020.json",
