@@ -26,7 +26,7 @@ const Result = ({ location }) => {
     const getData = async () => {
       const url = urlList[urlPosition];
 
-      await fetch(url)
+      fetch(url)
         .then((response) => response.json())
         .then((data) => {
           if (!isUnmount) setCollection(data[regId.toString()]);
@@ -35,7 +35,7 @@ const Result = ({ location }) => {
     const getLateData = async (count) => {
       const url = urlList[urlPosition + count];
 
-      await fetch(url)
+      fetch(url)
         .then((response) => response.json())
         .then((data) => {
           if (!isUnmount) {
@@ -55,8 +55,8 @@ const Result = ({ location }) => {
       urlPosition < 7 &&
       !isUnmount
     ) {
-      if (Number(regId.substring(0, 4)) >= 2020) getLateData(1);
-      else getLateData(2);
+      getLateData(2);
+      setLoaderIsVisible(false);
     } else if (
       //change this to else if
       Number(regId.substring(0, 4)) < 2020 &&
