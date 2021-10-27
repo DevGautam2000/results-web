@@ -17,7 +17,7 @@ const developerData = [
   {
     id: 2,
     src: portfolio,
-    link: "https://resume-1231.vercel.app",
+    link: "https://inginer.me",
     name: "portfolio",
   },
   {
