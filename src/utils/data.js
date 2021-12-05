@@ -47,7 +47,23 @@ const developerData = [
   },
 ];
 
-const periods = [
+// 202000001 nov/dec 2020 === 0
+const periodsData = [
+  { period: "Aug-Sem 2021", step: 2 },
+  { period: "May/June 2021", step: 2 },
+  { period: "March-Sem 2021", step: 0 },
+  { period: "Nov/Dec 2020", step: 1 },
+  { period: "May/June 2020", step: 1 },
+  { period: "Nov/Dec 2019", step: 1 },
+  { period: "April/May 2019", step: 1 },
+  { period: "Nov/Dec 2018", step: 1 },
+  { period: "April/May 2018", step: 1 },
+  { period: "Nov/Dec 2017", step: 0 },
+];
+
+/* 
+
+[
   "Aug Sem 2021",
   "May/June 2021",
   "March Sem 2021",
@@ -58,8 +74,8 @@ const periods = [
   "Nov/Dec 2018",
   "April/May 2018",
   "Nov/Dec 2017",
-];
-
+];*/
+const periods = periodsData.map((period) => period.period);
 const urlList = [
   "https://devgautam2000.github.io/results.github.io/json/21.aug_2021.json",
   "https://devgautam2000.github.io/results.github.io/json/21.may_june_2021.json",
@@ -73,4 +89,4 @@ const urlList = [
   "https://devgautam2000.github.io/results.github.io/json/17.nov_dec_2017.json",
 ];
 
-export { homeCardData, developerData, periods, urlList };
+export { homeCardData, developerData, periods, periodsData, urlList };

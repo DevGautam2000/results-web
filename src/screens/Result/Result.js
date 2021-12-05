@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Bar from "../../components/Bar/Bar";
 import style from "./Result.module.css";
-import { urlList, periods } from "../../utils/data";
+import { urlList, periods, periodsData } from "../../utils/data";
 import DataCard from "../../components/DataCard/DataCard";
 import Loader from "../../components/Loader/Loader";
 import GPA from "../../components/GPA/GPA";
@@ -15,7 +15,7 @@ const Result = ({ location }) => {
   const { regId, periodName, urlPosition } = location.state;
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [modalIsVisible, setModalIsVisible] = useState(true);
-
+  const { period, step } = periodsData[urlPosition];
   const [collection, setCollection] = useState({});
   const [lateCollection, setLateCollection] = useState({});
   const history = useHistory();
@@ -30,9 +30,13 @@ const Result = ({ location }) => {
         .then((response) => response.json())
         .then((data) => {
           if (!isUnmount) setCollection(data[regId.toString()]);
+        })
+        .catch((error) => {
+          setLoaderIsVisible(() => false);
         });
     };
     const getLateData = async (count) => {
+      if (count === 0) return;
       const url = urlList[urlPosition + count];
 
       fetch(url)
@@ -47,7 +51,13 @@ const Result = ({ location }) => {
 
     getData();
 
-    if (periodName === `Aug Sem 2021` && urlPosition < 7 && !isUnmount) {
+    if (Number(regId.substring(0, 4)) === Number(period.split(" ")[1])) {
+      //do nothing
+    } else getLateData(step);
+    setLoaderIsVisible(false);
+
+    //old code:
+    /*  if (periodName === `Aug Sem 2021` && urlPosition < 7 && !isUnmount) {
       if (Number(regId.substring(0, 4)) >= 2020) getLateData(2);
       else setLoaderIsVisible(false);
     } else if (
@@ -67,7 +77,7 @@ const Result = ({ location }) => {
       getLateData(1);
     } else {
       setLoaderIsVisible(false);
-    }
+    } */
 
     return () => (isUnmount = true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -115,11 +125,14 @@ const Result = ({ location }) => {
                   collection: collection,
                   lateCollection: lateCollection,
                   periodName: periodName,
+                  /* 
+                  //old code
                   latePeriodName:
                     periodName === `Aug Sem 2021` ||
                     periodName === `May/June 2021`
                       ? periods[urlPosition + 2]
-                      : periods[urlPosition + 1],
+                      : periods[urlPosition + 1], */
+                  latePeriodName: periods[urlPosition + step],
                 },
               }}
               className={style.analyzeTag}
