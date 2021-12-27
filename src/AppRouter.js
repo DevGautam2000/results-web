@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import Form from "./screens/Form/Form";
 import Analyzer from "./screens/Analyzer/Analyzer";
 import { useEffect, useState } from "react";
+import Iframe from "./components/Iframe/Iframe";
 
 function AppRouter() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -23,6 +24,7 @@ function AppRouter() {
           <Route path="/form" component={Form} exact />
           <Route path="/form/result" component={Result} exact />
           <Route path="/developer" component={Developer} exact />
+          <Route path="/estimator" component={Iframe} exact />
           <Route path="/form/result/analyzer" component={Analyzer} exact />
         </Switch>
       </AnimatePresence>

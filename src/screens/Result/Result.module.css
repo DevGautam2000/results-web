@@ -47,7 +47,7 @@
   font-weight: bold;
 }
 .infoTag span:nth-child(2) {
-  color: rgb(98, 0, 255);
+  color: #6200ff;
   font-weight: bold;
 }
 
@@ -83,6 +83,7 @@
   align-items: center;
   justify-content: center;
 }
+
 /* _________________________________________ */
 
 @media (min-width: 1450px) {
@@ -119,7 +120,7 @@
     background: white;
     word-wrap: break-word;
   }
-  
+
   .analyzeTag {
     font-size: 15px;
     height: 35%;
@@ -162,7 +163,7 @@
   .infoTagWeb span:nth-child(2) {
     color: rgb(98, 0, 255);
     font-weight: bold;
-    white-space: nowrap; 
+    white-space: nowrap;
   }
 
   .nameTag {

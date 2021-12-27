@@ -36,6 +36,7 @@
   background: linear-gradient(90deg, rgb(99, 2, 255) 50%, rgb(57, 85, 246));
   position: relative;
   z-index: -1;
+  overflow: hidden;
 }
 
 .source {

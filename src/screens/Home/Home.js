@@ -6,6 +6,7 @@ import style from "./Home.module.css";
 import { homeCardData } from "../../utils/data";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
+import Estimator from "../../components/Estimator/Estimator";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
           styles={style.card_container}
         />
       </div>
+      <Estimator />
       <Motion Component={<Footer />} />
     </>
   );

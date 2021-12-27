@@ -1,0 +1,24 @@
+.iframe_wrapper {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+}
+
+.iframe {
+  border-radius: 10px;
+  border: 0;
+  box-shadow: 0 0 30px #3333;
+  width: 90%;
+  height: 90%;
+  position: relative;
+}
+
+.iframe + div {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  padding: 10px 20px;
+  text-align: center;
+}

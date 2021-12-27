@@ -10,6 +10,7 @@ import { useHistory } from "react-router-dom";
 import Motion from "../../js/Motion";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
+import Estimator from "../../components/Estimator/Estimator";
 
 const Result = ({ location }) => {
   const { regId, periodName, urlPosition } = location.state;
@@ -177,6 +178,7 @@ const Result = ({ location }) => {
             />
           </div>
         ) : null}
+        <Estimator className={style.estimator} />
       </>
     );
   } else {
