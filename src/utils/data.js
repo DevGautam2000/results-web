@@ -77,16 +77,16 @@ const periodsData = [
 ];*/
 const periods = periodsData.map((period) => period.period);
 const urlList = [
-  "https://devgautam2000.github.io/results.github.io/json/21.aug_2021.json",
-  "https://devgautam2000.github.io/results.github.io/json/21.may_june_2021.json",
-  "https://devgautam2000.github.io/results.github.io/json/21_march_semester(first%20year%20only)_2021.json",
-  "https://devgautam2000.github.io/results.github.io/json/20.nov_dec_2020.json",
-  "https://devgautam2000.github.io/results.github.io/json/20.may_june_2020.json",
-  "https://devgautam2000.github.io/results.github.io/json/19.nov_dec_2019.json",
-  "https://devgautam2000.github.io/results.github.io/json/19.may_june_2019.json",
-  "https://devgautam2000.github.io/results.github.io/json/18.nov_dec_2018.json",
-  "https://devgautam2000.github.io/results.github.io/json/18.may_june_2018.json",
-  "https://devgautam2000.github.io/results.github.io/json/17.nov_dec_2017.json",
+  "/21.aug_2021.json",
+  "/21.may_june_2021.json",
+  "/21_march_semester(first%20year%20only)_2021.json",
+  "/20.nov_dec_2020.json",
+  "/20.may_june_2020.json",
+  "/19.nov_dec_2019.json",
+  "/19.may_june_2019.json",
+  "/18.nov_dec_2018.json",
+  "/18.may_june_2018.json",
+  "/17.nov_dec_2017.json",
 ];
 
 export { homeCardData, developerData, periods, periodsData, urlList };

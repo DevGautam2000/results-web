@@ -26,7 +26,7 @@ const Result = ({ location }) => {
     const getData = async () => {
       const url = urlList[urlPosition];
 
-      fetch(url)
+      fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
         .then((response) => response.json())
         .then((data) => {
           if (!isUnmount) setCollection(data[regId.toString()]);
@@ -39,7 +39,7 @@ const Result = ({ location }) => {
       if (count === 0) return;
       const url = urlList[urlPosition + count];
 
-      fetch(url)
+      fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
         .then((response) => response.json())
         .then((data) => {
           if (!isUnmount) {
