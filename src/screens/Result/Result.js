@@ -22,6 +22,13 @@ const Result = ({ location }) => {
   const history = useHistory();
 
   useEffect(() => {
+    const modal = JSON.parse(window.localStorage.getItem("results-modal"));
+
+    if (!modal) {
+      setModalIsVisible(() => modal);
+    }
+  }, []);
+  useEffect(() => {
     let isUnmount = false;
 
     const getData = async () => {
@@ -31,9 +38,10 @@ const Result = ({ location }) => {
         .then((response) => response.json())
         .then((data) => {
           if (!isUnmount) setCollection(data[regId.toString()]);
+          setLoaderIsVisible(() => false);
         })
         .catch((error) => {
-          setLoaderIsVisible(() => false);
+          // setLoaderIsVisible(() => false);
         });
     };
     const getLateData = async (count) => {
@@ -55,7 +63,7 @@ const Result = ({ location }) => {
     if (Number(regId.substring(0, 4)) === Number(period.split(" ")[1])) {
       //do nothing
     } else getLateData(step);
-    setLoaderIsVisible(false);
+    // setLoaderIsVisible(false);
 
     //old code:
     /*  if (periodName === `Aug Sem 2021` && urlPosition < 7 && !isUnmount) {
@@ -174,6 +182,7 @@ const Result = ({ location }) => {
               value="Hover on the subject card to see marks."
               click={() => {
                 setModalIsVisible(false);
+                window.localStorage.setItem("results-modal", "false");
               }}
             />
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Motion from "../../js/Motion";
 import Bar from "../../components/Bar/Bar";
 import Card from "../../components/Card/Card";
@@ -9,6 +9,10 @@ import Footer from "../../components/Footer/Footer";
 import Estimator from "../../components/Estimator/Estimator";
 
 export default function Home() {
+  useEffect(() => {
+    if (window.localStorage.getItem("results-modal") === null)
+      window.localStorage.setItem("results-modal", "true");
+  }, []);
   return (
     <>
       <div className={style.home}>
