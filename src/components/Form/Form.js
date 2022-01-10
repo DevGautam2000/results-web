@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
@@ -10,6 +10,9 @@ import { Button, TextField } from "@material-ui/core";
 import Modal from "../../components/Modal/Modal";
 import { periods } from "../../utils/data";
 import { useHistory } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { useDispatch } from "react-redux";
+import { actionsCreators } from "../../state/actions";
 
 export default function Form() {
   const useStyles = makeStyles((theme) => ({
@@ -89,6 +92,19 @@ export default function Form() {
     setErr(errText);
     setModalVisibility(isVisible);
   };
+  const dispatch = useDispatch();
+  const { getCollection, getLateCollection, setPeriod, setLatePeriod } =
+    bindActionCreators(actionsCreators, dispatch);
+
+  useEffect(() => {
+    //as the data is in state we need to remove it;
+    getCollection({});
+    getLateCollection({});
+    setPeriod("");
+    setLatePeriod("");
+
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <>

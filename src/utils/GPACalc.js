@@ -1,4 +1,5 @@
 export default function calcGpa(collection) {
+  if (!collection) return;
   let decPoint, decCredit;
   let totalPoint = 0.0,
     totalCredit = 0.0;

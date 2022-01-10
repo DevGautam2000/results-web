@@ -1,9 +1,11 @@
 import React from "react";
 import style from "./GPA.module.css";
 import calcGpa from "../../utils/GPACalc";
+import { useSelector } from "react-redux";
 
-export default function GPACalc({ data }) {
-  const gpaPoint = calcGpa(data);
+export default function GPACalc() {
+  const { collection } = useSelector((state) => state.collections);
+  const gpaPoint = calcGpa(collection);
 
   const classNames = [style.red, style.green, style.pale];
   let pos = 0;

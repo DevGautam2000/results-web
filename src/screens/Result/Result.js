@@ -11,15 +11,24 @@ import Motion from "../../js/Motion";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Estimator from "../../components/Estimator/Estimator";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionsCreators } from "../../state/actions";
 
-const Result = ({ location }) => {
-  const { regId, periodName, urlPosition } = location.state;
+const Result = ({
+  location: {
+    state: { regId, periodName, urlPosition },
+  },
+}) => {
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [modalIsVisible, setModalIsVisible] = useState(true);
   const { period, step } = periodsData[urlPosition];
-  const [collection, setCollection] = useState({});
-  const [lateCollection, setLateCollection] = useState({});
   const history = useHistory();
+
+  const { collection } = useSelector((state) => state.collections);
+  const dispatch = useDispatch();
+  const { getCollection, getLateCollection, setPeriod, setLatePeriod } =
+    bindActionCreators(actionsCreators, dispatch);
 
   useEffect(() => {
     const modal = JSON.parse(window.localStorage.getItem("results-modal"));
@@ -37,11 +46,14 @@ const Result = ({ location }) => {
       fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
         .then((response) => response.json())
         .then((data) => {
-          if (!isUnmount) setCollection(data[regId.toString()]);
+          if (!isUnmount) {
+            getCollection(data[regId.toString()]);
+            setPeriod(periodName);
+          }
           setLoaderIsVisible(() => false);
         })
         .catch((error) => {
-          // setLoaderIsVisible(() => false);
+          //do  nothing
         });
     };
     const getLateData = async (count) => {
@@ -53,40 +65,16 @@ const Result = ({ location }) => {
         .then((data) => {
           if (!isUnmount) {
             setLoaderIsVisible(false);
-            setLateCollection(data[regId.toString()]);
+            getLateCollection(data[regId.toString()]);
+            setLatePeriod(periods[urlPosition + step]);
           }
         });
     };
 
     getData();
 
-    if (Number(regId.substring(0, 4)) === Number(period.split(" ")[1])) {
-      //do nothing
+    if (Number(regId.substring(0, 4)) >= Number(period.split(" ")[1])) {
     } else getLateData(step);
-    // setLoaderIsVisible(false);
-
-    //old code:
-    /*  if (periodName === `Aug Sem 2021` && urlPosition < 7 && !isUnmount) {
-      if (Number(regId.substring(0, 4)) >= 2020) getLateData(2);
-      else setLoaderIsVisible(false);
-    } else if (
-      periodName === `May/June 2021` &&
-      urlPosition < 7 &&
-      !isUnmount
-    ) {
-      getLateData(2);
-      setLoaderIsVisible(false);
-    } else if (
-      //change this to else if
-      Number(regId.substring(0, 4)) < 2020 &&
-      urlPosition < 7 &&
-      periodName !== `Nov/Dec ${regId.substring(0, 4)}` &&
-      !isUnmount
-    ) {
-      getLateData(1);
-    } else {
-      setLoaderIsVisible(false);
-    } */
 
     return () => (isUnmount = true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -125,25 +113,10 @@ const Result = ({ location }) => {
               <span>{periodName}</span>
             </div>
             <div className={`${style.nameTag} ${style.gpaTag} `}>
-              <GPA data={collection} />
+              <GPA />
             </div>
             <Link
-              to={{
-                pathname: "/form/result/analyzer",
-                state: {
-                  collection: collection,
-                  lateCollection: lateCollection,
-                  periodName: periodName,
-                  /* 
-                  //old code
-                  latePeriodName:
-                    periodName === `Aug Sem 2021` ||
-                    periodName === `May/June 2021`
-                      ? periods[urlPosition + 2]
-                      : periods[urlPosition + 1], */
-                  latePeriodName: periods[urlPosition + step],
-                },
-              }}
+              to="/form/result/analyzer"
               className={style.analyzeTag}
               style={{
                 textDecoration: "none",
@@ -152,8 +125,8 @@ const Result = ({ location }) => {
               <div>
                 Analyzer
                 <span>
-                  Click on me to see your results and get a more detailed view
-                  of what your performance is with comparision.
+                  Click to see your results and get a more detailed view of your
+                  performance.
                 </span>
               </div>
             </Link>

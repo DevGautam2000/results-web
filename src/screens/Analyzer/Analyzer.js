@@ -5,10 +5,13 @@ import style from "./Analyzer.module.css";
 import Chart from "../../components/Chart/Chart";
 import calcGpa from "../../utils/GPACalc";
 import { useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Analyzer = ({ location }) => {
-  const { collection, lateCollection, periodName, latePeriodName } =
-    location.state;
+const Analyzer = () => {
+  const { collection, lateCollection } = useSelector(
+    (state) => state.collections
+  );
+  const { period, lateperiod } = useSelector((state) => state.periods);
 
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const [modalValue, setModalValue] = useState("");
@@ -87,13 +90,14 @@ const Analyzer = ({ location }) => {
   };
 
   extractData(collection, intList, extList, subList, labelsList);
-  extractData(
-    lateCollection,
-    late_intList,
-    late_extList,
-    late_subList,
-    late_labelsList
-  );
+  if (lateCollection)
+    extractData(
+      lateCollection,
+      late_intList,
+      late_extList,
+      late_subList,
+      late_labelsList
+    );
 
   const setChartData = (labelsList, intList, extList) => {
     return {
@@ -138,7 +142,7 @@ const Analyzer = ({ location }) => {
   if (late_labelsList.length > 0) {
     late_chart = (
       <Chart
-        periodName={latePeriodName}
+        periodName={lateperiod}
         data={late_data}
         collection={lateCollection}
       />
@@ -163,7 +167,7 @@ const Analyzer = ({ location }) => {
 
       {modalFunction === 1 ? (
         <div className={style.chart_container}>
-          <Chart periodName={periodName} data={data} collection={collection} />
+          <Chart periodName={period} data={data} collection={collection} />
           {late_chart}
         </div>
       ) : null}

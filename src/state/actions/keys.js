@@ -1,0 +1,6 @@
+export const actions = {
+  GET_DATA: "GET_DATA",
+  GET_LATE_DATA: "GET_LATE_DATA",
+  GET_PERIOD: "GET_PERIOD",
+  GET_LATE_PERIOD: "GET_LATE_PERIOD",
+};
