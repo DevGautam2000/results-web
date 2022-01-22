@@ -49,6 +49,7 @@ const developerData = [
 
 // 202000001 nov/dec 2020 === 0
 const periodsData = [
+  { period: "Nov/Dec 2021", step: 2 },
   { period: "Aug-Sem 2021", step: 2 },
   { period: "May/June 2021", step: 2 },
   { period: "March-Sem 2021", step: 0 },
@@ -77,6 +78,7 @@ const periodsData = [
 ];*/
 const periods = periodsData.map((period) => period.period);
 const urlList = [
+  "/21.nov_dec_2021.json",
   "/21.aug_2021.json",
   "/21.may_june_2021.json",
   "/21_march_semester(first%20year%20only)_2021.json",
