@@ -66,15 +66,22 @@ const Result = ({
           if (!isUnmount) {
             setLoaderIsVisible(false);
             getLateCollection(data[regId.toString()]);
-            setLatePeriod(periods[urlPosition + step]);
+            setLatePeriod(periods[urlPosition + count]);
           }
         });
     };
 
     getData();
+    
+    console.log(Number(regId.substring(0, 5))," ",periodName);
+     if (Number(regId.substring(0, 4)) >= Number(period.split(" ")[1])) {
+    }
+    else if(Number(regId.substring(0, 5) === "20200") && periodName === "Nov/Dec 2021"){
+      const s = step-1;
+      getLateData(s);
 
-    if (Number(regId.substring(0, 4)) >= Number(period.split(" ")[1])) {
-    } else getLateData(step);
+    }
+    else getLateData(step);
 
     return () => (isUnmount = true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
