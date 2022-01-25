@@ -8,6 +8,7 @@ import Modal from "../../components/Modal/Modal";
 import { useHistory } from "react-router-dom";
 
 const Form = () => {
+
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const history = useHistory();
 
@@ -34,6 +35,8 @@ const Form = () => {
           }}
         />
       ) : null}
+      
+      
     </>
   );
 };

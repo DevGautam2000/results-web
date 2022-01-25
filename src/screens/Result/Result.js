@@ -72,8 +72,7 @@ const Result = ({
     };
 
     getData();
-    
-    console.log(Number(regId.substring(0, 5))," ",periodName);
+  
      if (Number(regId.substring(0, 4)) >= Number(period.split(" ")[1])) {
     }
     else if(Number(regId.substring(0, 5) === "20200") && periodName === "Nov/Dec 2021"){
@@ -121,6 +120,7 @@ const Result = ({
             </div>
             <div className={`${style.nameTag} ${style.gpaTag} `}>
               <GPA />
+              <span>( GPA is exclusive of marks in minor specialization subjects )</span>
             </div>
             <Link
               to="/form/result/analyzer"

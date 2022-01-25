@@ -82,9 +82,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+.nameTag>span{
+  color: #eee;
+  text-align: center;
+  font-size: 0.5rem;
+  margin-top: .3rem;
 }
 
 /* _________________________________________ */
+
 
 @media (min-width: 1450px) {
   .container {
@@ -124,7 +133,6 @@
   .analyzeTag {
     font-size: 15px;
     height: 35%;
-
     cursor: pointer;
   }
 
@@ -173,6 +181,7 @@
     box-shadow: 0 1px 20px rgb(71, 69, 69);
   }
 
+
   .web_design {
     background: palevioletred;
   }
@@ -207,6 +216,13 @@
     place-items: center;
     overflow-y: scroll;
   }
+
+  .nameTag>span{
+    color: #f56099;
+    position: absolute;
+    bottom: 0.5rem;
+  }
+  
 }
 
 /* __________________________________________ */
@@ -224,6 +240,8 @@
   .nameTag {
     font-size: 14px;
   }
+
+  
 }
 @media (max-width: 350px) {
   .container {

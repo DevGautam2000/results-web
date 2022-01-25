@@ -9,7 +9,6 @@ const Modal = ({ value, click }) => {
           X
         </span>
         <span className={style.message}>{value}</span>
-
         <Button
           style={{
             background: "rgb(245, 96, 153)",

@@ -20,10 +20,9 @@
   width: 80%;
   height: 85%;
   padding: 10px;
-
   justify-content: space-between;
   flex-direction: column;
-  color: rgb(245, 96, 153);
+  color: #f56099;
 }
 
 .form_style {

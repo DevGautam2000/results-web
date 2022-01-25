@@ -22,11 +22,12 @@ export default function calcGpa(collection) {
         return 0.0;
     }
   };
-
+  
   const finalMarks = Object.keys(collection).map((item) => {
     decPoint = getPointFromGrade(collection[item]["grade"]);
     let gpa = null;
-    if (item !== "name") {
+    if (item !== "name" && item.substring(2,4) !== "18") {
+
       if (decPoint >= 0) {
         decCredit = Number(collection[item]["credit"]);
         totalPoint += decPoint * decCredit;
@@ -35,7 +36,7 @@ export default function calcGpa(collection) {
       gpa = totalPoint / totalCredit;
       gpa = Math.round(gpa * 100) / 100.0;
     }
-    return gpa;
+    return gpa || 0;
   });
 
   return finalMarks[finalMarks.length - 1]
