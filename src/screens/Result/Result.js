@@ -37,6 +37,7 @@ const Result = ({
       setModalIsVisible(() => modal);
     }
   }, []);
+
   useEffect(() => {
     let isUnmount = false;
 
@@ -57,7 +58,7 @@ const Result = ({
         });
     };
     const getLateData = async (count) => {
-      if (count === 0) return;
+      if (count === 0){setLoaderIsVisible(false); return;}
       const url = urlList[urlPosition + count];
 
       fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
