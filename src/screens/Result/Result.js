@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Bar from "../../components/Bar/Bar";
 import style from "./Result.module.css";
-import { urlList, periods, periodsData } from "../../utils/data";
+import {
+  urlList,
+  urlListSupplementary,
+  periods,
+  periodsData,
+  periodsDataSupplementary,
+} from "../../utils/data";
 import DataCard from "../../components/DataCard/DataCard";
 import Loader from "../../components/Loader/Loader";
 import GPA from "../../components/GPA/GPA";
@@ -17,12 +23,15 @@ import { actionsCreators } from "../../state/actions";
 
 const Result = ({
   location: {
-    state: { regId, periodName, urlPosition },
+    state: { regId, periodName, urlPosition, type },
   },
 }) => {
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [modalIsVisible, setModalIsVisible] = useState(true);
-  const { period, step } = periodsData[urlPosition];
+  const { period, step } =
+    type === "semester"
+      ? periodsData[urlPosition]
+      : periodsDataSupplementary[urlPosition];
   const history = useHistory();
 
   const { collection } = useSelector((state) => state.collections);
@@ -42,7 +51,10 @@ const Result = ({
     let isUnmount = false;
 
     const getData = async () => {
-      const url = urlList[urlPosition];
+      const url =
+        type === "semester"
+          ? urlList[urlPosition]
+          : urlListSupplementary[urlPosition];
 
       fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
         .then((response) => response.json())
@@ -58,7 +70,10 @@ const Result = ({
         });
     };
     const getLateData = async (count) => {
-      if (count === 0){setLoaderIsVisible(false); return;}
+      if (count === 0) {
+        setLoaderIsVisible(false);
+        return;
+      }
       const url = urlList[urlPosition + count];
 
       fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
@@ -73,15 +88,15 @@ const Result = ({
     };
 
     getData();
-  
-     if (Number(regId.substring(0, 4)) >= Number(period.split(" ")[1])) {
-    }
-    else if(Number(regId.substring(0, 5) === "20200") && periodName === "Nov/Dec 2021"){
-      const s = step-1;
-      getLateData(s);
 
-    }
-    else getLateData(step);
+    if (Number(regId.substring(0, 4)) >= Number(period.split(" ")[1])) {
+    } else if (
+      Number(regId.substring(0, 5) === "20200") &&
+      periodName === "Nov/Dec 2021"
+    ) {
+      const s = step - 1;
+      getLateData(s);
+    } else getLateData(step);
 
     return () => (isUnmount = true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -100,7 +115,10 @@ const Result = ({
           ID:
           <span>{regId}</span>
           For
-          <span>{periodName}</span>
+          <span>
+            {periodName}
+            {type === "semester" ? null : " Supplementary"}
+          </span>
         </div>
         <div className={style.container}>
           <div className={`${style.tagsContainer}`}>
@@ -111,17 +129,31 @@ const Result = ({
                 paddingTop: "15px",
               }}
             >
-              {collection.name}
+              {collection.name === "NA" ||
+              collection.name === null ||
+              collection.name === undefined
+                ? ""
+                : collection.name}
             </div>
             <div className={style.infoTagWeb}>
               ID:
               <span>{regId}</span>
               For
-              <span>{periodName}</span>
+              <span>
+                {periodName}
+                {type === "semester" ? null : " Supplementary"}
+              </span>
             </div>
             <div className={`${style.nameTag} ${style.gpaTag} `}>
-              <GPA />
-              <span>( GPA is exclusive of marks in minor specialization subjects )</span>
+              {type === "semester" ? (
+                <>
+                  <GPA />
+                  <span>
+                    ( GPA is exclusive of marks in minor specialization subjects
+                    )
+                  </span>
+                </>
+              ) : null}
             </div>
             <Link
               to="/form/result/analyzer"

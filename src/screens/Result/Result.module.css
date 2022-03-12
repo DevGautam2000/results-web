@@ -36,6 +36,7 @@
   border-radius: 8px;
   justify-content: center;
   transform: translateX(-50%);
+  font-size: .9rem;
 }
 
 .infoTag span {

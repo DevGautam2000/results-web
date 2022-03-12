@@ -8,11 +8,12 @@ import Select from "@material-ui/core/Select";
 import style from "./Form.module.css";
 import { Button, TextField } from "@material-ui/core";
 import Modal from "../../components/Modal/Modal";
-import { periods } from "../../utils/data";
+import { periods, periodsSupplementary } from "../../utils/data";
 import { useHistory } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 import { actionsCreators } from "../../state/actions";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
 export default function Form() {
   const useStyles = makeStyles((theme) => ({
@@ -22,7 +23,6 @@ export default function Form() {
       maxWidth: 300,
     },
   }));
-
   const ITEM_HEIGHT = 48;
   const ITEM_PADDING_TOP = 8;
   const MenuProps = {
@@ -49,6 +49,7 @@ export default function Form() {
   const [regId, setRegId] = useState("");
   const [err, setErr] = useState("");
   const [modalVisibility, setModalVisibility] = useState(false);
+  const [periodType, setPeriodType] = useState("semester");
   const history = useHistory();
 
   const handleSubmit = (e) => {
@@ -62,8 +63,12 @@ export default function Form() {
       pathname: "/form/result",
       state: {
         regId: regId,
+        type: periodType,
         periodName: periodName,
-        urlPosition: periods.indexOf(periodName),
+        urlPosition:
+          periodType === "semester"
+            ? periods.indexOf(periodName)
+            : periodsSupplementary.indexOf(periodName),
       },
     });
   };
@@ -106,10 +111,36 @@ export default function Form() {
     // eslint-disable-next-line
   }, []);
 
+  const handleChange = (event, newAlignment) => {
+    setPeriodType(()=>newAlignment);
+    setPeriodName(()=>"");
+  };
+
   return (
     <>
       <div className={style.form}>
         <form className={style.form_container}>
+          <ToggleButtonGroup
+            color="warning"
+            id={style.tbg}
+            value={periodType}
+            exclusive
+            onChange={handleChange}
+            defaultChecked
+          >
+            <ToggleButton
+              value="semester"
+              sx={{ textTransform: "none", width: "100%" }}
+            >
+              Semester
+            </ToggleButton>
+            <ToggleButton
+              value="supplementary"
+              sx={{ textTransform: "none", width: "100%" }}
+            >
+              Supplementary
+            </ToggleButton>
+          </ToggleButtonGroup>
           <FormControl
             className={clsx(
               classes.formControl,
@@ -117,32 +148,57 @@ export default function Form() {
               style.form_style
             )}
           >
-            <Select
-              displayEmpty
-              value={periodName}
-              onChange={(e) => setPeriodName(e.target.value)}
-              input={<Input />}
-              MenuProps={MenuProps}
-              inputProps={{ "aria-label": "Without label" }}
-            >
-              <MenuItem disabled value="">
-                <em>Select Duration</em>
-              </MenuItem>
-              {periods.map((name) => (
-                <MenuItem
-                  key={name}
-                  value={name}
-                  style={getStyles(name, periodName, theme)}
-                >
-                  {name}
+            {periodType === "semester" ? (
+              <Select
+                displayEmpty
+                value={periodName}
+                onChange={(e) => setPeriodName(e.target.value)}
+                input={<Input />}
+                MenuProps={MenuProps}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem disabled value="">
+                  <em>Select Duration</em>
                 </MenuItem>
-              ))}
-            </Select>
+                {periods.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, periodName, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            ) : (
+              <Select
+                displayEmpty
+                value={periodName}
+                onChange={(e) => setPeriodName(e.target.value)}
+                input={<Input />}
+                MenuProps={MenuProps}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem disabled value="">
+                  <em>Select Duration</em>
+                </MenuItem>
+                {periodsSupplementary.map((name) => (
+                  <MenuItem
+                    key={name}
+                    value={name}
+                    style={getStyles(name, periodName, theme)}
+                  >
+                    {name}
+                  </MenuItem>
+                ))}
+              </Select>
+            )}
           </FormControl>
           <TextField
             className={style.form_style}
             placeholder="Registration ID"
             value={regId}
+            type="number"
             onSubmit={handleSubmit}
             onChange={(e) => setRegId(e.target.value)}
           />

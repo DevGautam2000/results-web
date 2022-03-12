@@ -1,6 +1,6 @@
 .form {
   width: 400px;
-  height: 280px;
+  height: 320px;
   position: relative;
   top: -80px;
   left: 50%;
@@ -14,13 +14,27 @@
   box-shadow: 0 1px 2px gray;
 }
 
+#tbg{
+  width: 100%;
+  max-width: 100%;
+}
+
+#tbg>*{
+  border: 0 !important;
+  outline: none !important;
+  border-radius: 10px;
+  padding: 6px !important;
+}
+
+
+
 .form_container {
   display: flex;
   align-items: center;
   width: 80%;
-  height: 85%;
+  height: 95%;
   padding: 10px;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-direction: column;
   color: #f56099;
 }
@@ -51,6 +65,10 @@
 @media (max-width: 718px) {
   .form {
     width: 80vw;
+  }
+  
+  #tbg>*{
+    font-size: .7rem !important;
   }
 }
 

@@ -62,6 +62,15 @@ const periodsData = [
   { period: "April/May 2018", step: 1 },
   { period: "Nov/Dec 2017", step: 0 },
 ];
+const periodsDataSupplementary = [
+  { period: "Jan/Feb 2022", step: 0 },
+  { period: "Jul/Aug 2021", step: 0 },
+  { period: "Jan 2021", step: 0 },
+  { period: "Jul/Aug 2020", step: 0 },
+  { period: "Jan 2020", step: 0 },
+  { period: "Jul/Aug 2019", step: 0 },
+  { period: "Jan 2019", step: 0 },
+];
 
 /* 
 
@@ -78,6 +87,7 @@ const periodsData = [
   "Nov/Dec 2017",
 ];*/
 const periods = periodsData.map((period) => period.period);
+const periodsSupplementary = periodsDataSupplementary.map((per) => per.period);
 const urlList = [
   "/22.jan_feb_2022.json",
   "/21.nov_dec_2021.json",
@@ -93,4 +103,23 @@ const urlList = [
   "/17.nov_dec_2017.json",
 ];
 
-export { homeCardData, developerData, periods, periodsData, urlList };
+const urlListSupplementary = [
+  "/22.jan_feb_supplementary_2022.json",
+  "/21.july_aug_supplementary_2021.json",
+  "/21.jan_supplementary_2021.json",
+  "/20.july_aug_supplementary_2020.json",
+  "/20.jan_supplementary_2020.json",
+  "/19.june_july_supplementary_2019.json",
+  "/19.jan_supplementary_2019.json",
+];
+
+export {
+  homeCardData,
+  developerData,
+  periods,
+  periodsData,
+  periodsDataSupplementary,
+  urlList,
+  urlListSupplementary,
+  periodsSupplementary,
+};
