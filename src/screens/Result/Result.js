@@ -117,7 +117,7 @@ const Result = ({
           For
           <span>
             {periodName}
-            {type === "semester" ? null : " Supplementary"}
+            {type === "semester" ? null : " Suppl.."}
           </span>
         </div>
         <div className={style.container}>
@@ -141,7 +141,7 @@ const Result = ({
               For
               <span>
                 {periodName}
-                {type === "semester" ? null : " Supplementary"}
+                {type === "semester" ? null : " Suppl.."}
               </span>
             </div>
             <div className={`${style.nameTag} ${style.gpaTag} `}>

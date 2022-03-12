@@ -244,15 +244,17 @@
 
   
 }
-@media (max-width: 400px) {
+@media (max-width: 350px) {
   .container {
     width: 300px;
   }
 
   .infoTag {
     width: 300px;
-    font-size: .6rem;
+    font-size: 13px;
+  }
+
+  .nameTag {
+    font-size: 13px;
   }
 }
-
-
