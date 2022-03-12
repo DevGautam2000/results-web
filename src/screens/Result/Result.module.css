@@ -251,10 +251,10 @@
 
   .infoTag {
     width: 300px;
-    font-size: 13px;
+    font-size: .7rem;
   }
 
   .nameTag {
-    font-size: 13px;
+    font-size: .7rem;
   }
 }
