@@ -22,14 +22,14 @@ export default function calcGpa(collection) {
         return 0.0;
     }
   };
-  
+
   const finalMarks = Object.keys(collection).map((item) => {
     decPoint = getPointFromGrade(collection[item]["grade"]);
     let gpa = null;
-    if (item !== "name" && item.substring(2,4) !== "18") {
-
+    if (item !== "name" && item.substring(2, 4) !== "18") {
       if (decPoint >= 0) {
-        decCredit = Number(collection[item]["credit"]);
+        const cr = collection[item]["credit"].toString().split("/");
+        decCredit = Number(cr[1] || cr[0]);
         totalPoint += decPoint * decCredit;
         totalCredit += decCredit;
       }
@@ -39,7 +39,5 @@ export default function calcGpa(collection) {
     return gpa || 0;
   });
 
-  return finalMarks[finalMarks.length - 1]
-    ? finalMarks[finalMarks.length - 1]
-    : finalMarks[finalMarks.length - 2];
+  return finalMarks.at(-1) ? finalMarks.at(-1) : finalMarks.at(-2);
 }

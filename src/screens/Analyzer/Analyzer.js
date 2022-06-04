@@ -45,7 +45,7 @@ const Analyzer = () => {
       value = "Hurray! Your performance is better from last semester.";
       visible = true;
     } else {
-      value = "Oh no! You performed better last semester.";
+      value = "Oh O! You performed better last semester.";
       visible = true;
     }
 

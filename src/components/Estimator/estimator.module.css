@@ -1,6 +1,7 @@
 .iframebutton {
   display: none;
 }
+
 @media (min-width: 1050px) {
   .iframebutton {
     display: block;
@@ -8,13 +9,14 @@
     position: fixed;
     right: 3vw;
     bottom: 6vh;
-    padding: 10px 20px;
     box-shadow: 0 0 10px #3333;
     border-radius: 8px;
     border: 0;
     color: white;
     cursor: pointer;
     font-size: 0.9rem;
+    height: 60px;
+    width: 60px;
   }
   .iframebutton:hover::before {
     content: attr(data-tooltip);
@@ -33,5 +35,28 @@
   }
   .iframebutton:active {
     transform: scale(0.98);
+  }
+  .iframebutton > svg {
+    width: 60% !important;
+    height: 60% !important;
+  }
+}
+
+/* changed this part */
+@media (max-width: 900px) {
+  .iframebutton {
+    display: block;
+    background: #f56099;
+    position: fixed;
+    right: 3vw;
+    bottom: 6vh;
+    box-shadow: 0 0 10px #3333;
+    border-radius: 8px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9rem;
+    height: 60px;
+    width: 60px;
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import style from "./estimator.module.css";
-
+import CalculateIcon from "@mui/icons-material/Calculate";
 function Estimator() {
   const history = useHistory();
   return (
@@ -13,7 +13,7 @@ function Estimator() {
       className={style.iframebutton}
       data-tooltip="credits @rishavanand"
     >
-      Gpa Estimator
+      <CalculateIcon />
     </button>
   );
 }

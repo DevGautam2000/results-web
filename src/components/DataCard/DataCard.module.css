@@ -152,19 +152,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease-in-out;
+
     height: 100%;
     min-width: 100%;
     position: absolute;
     bottom: 0;
     padding: 1rem;
-    transform: translateY(101%);
+    opacity: 0;
     color: white;
+    transition: all 0.3s ease-in-out;
     font-weight: bold;
   }
 
   .data_card:hover .lower_container {
-    transform: translateY(0);
+    opacity: 1;
   }
 
   .int,
