@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import Bar from "../../components/Bar/Bar";
 import style from "./Developer.module.css";
 import { developerData } from "../../utils/data";
-import Motion from "../../js/Motion";
+import Motion from "../../hocs/Motion";
 import Footer from "../../components/Footer/Footer";
 import Modal from "../../components/Modal/Modal";
 import avatar from "../../assets/avatar.jpg";

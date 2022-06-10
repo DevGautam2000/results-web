@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Motion from "../../js/Motion";
+import Motion from "../../hocs/Motion";
 import Bar from "../../components/Bar/Bar";
 import Card from "../../components/Card/Card";
 import style from "./Home.module.css";

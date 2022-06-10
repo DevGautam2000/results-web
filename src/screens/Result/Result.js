@@ -13,7 +13,7 @@ import Loader from "../../components/Loader/Loader";
 import GPA from "../../components/GPA/GPA";
 import Modal from "../../components/Modal/Modal";
 import { useHistory } from "react-router-dom";
-import Motion from "../../js/Motion";
+import Motion from "../../hocs/Motion";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Estimator from "../../components/Estimator/Estimator";

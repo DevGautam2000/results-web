@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import style from "./Form.module.css";
 import ResultForm from "../../components/Form/Form";
-import Motion from "../../js/Motion";
+import Motion from "../../hocs/Motion";
 import Bar from "../../components/Bar/Bar";
 import Footer from "../../components/Footer/Footer";
 import Modal from "../../components/Modal/Modal";
 import { useHistory } from "react-router-dom";
 
 const Form = () => {
-
   const [modalIsVisible, setModalIsVisible] = useState(false);
   const history = useHistory();
 
@@ -35,8 +34,6 @@ const Form = () => {
           }}
         />
       ) : null}
-      
-      
     </>
   );
 };
