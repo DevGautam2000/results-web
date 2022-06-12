@@ -5,7 +5,7 @@ import AppRouter from "../AppRouter";
 const Context = createContext();
 
 function ContextProvider() {
-  const [loggedIn, setLoggedIn] = useState("false");
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
     <Context.Provider value={{ loggedIn, setLoggedIn }}>
       <AppRouter />

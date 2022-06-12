@@ -17,9 +17,8 @@ import Motion from "../../hocs/Motion";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 import Estimator from "../../components/Estimator/Estimator";
-import { useDispatch, useSelector } from "react-redux";
-import { bindActionCreators } from "redux";
-import { actionsCreators } from "../../state/actions";
+import { useSelector } from "react-redux";
+import { useActionCreators } from "../../state/creators";
 
 const Result = ({
   location: {
@@ -28,16 +27,17 @@ const Result = ({
 }) => {
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [modalIsVisible, setModalIsVisible] = useState(true);
+
+  const history = useHistory();
+
+  const { collection } = useSelector((state) => state.collections);
+  const { getCollection, getLateCollection, setPeriod, setLatePeriod } =
+    useActionCreators();
+
   const { period, step } =
     type === "semester"
       ? periodsData[urlPosition]
       : periodsDataSupplementary[urlPosition];
-  const history = useHistory();
-
-  const { collection } = useSelector((state) => state.collections);
-  const dispatch = useDispatch();
-  const { getCollection, getLateCollection, setPeriod, setLatePeriod } =
-    bindActionCreators(actionsCreators, dispatch);
 
   useEffect(() => {
     const modal = JSON.parse(window.localStorage.getItem("results-modal"));
@@ -55,7 +55,9 @@ const Result = ({
         type === "semester"
           ? urlList[urlPosition]
           : urlListSupplementary[urlPosition];
-
+      // if (url === undefined) {
+      //   return;
+      // }
       fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
         .then((response) => response.json())
         .then((data) => {
@@ -65,8 +67,8 @@ const Result = ({
           }
           setLoaderIsVisible(() => false);
         })
-        .catch((error) => {
-          //do  nothing
+        .catch((err) => {
+          // history.push("/");
         });
     };
     const getLateData = async (count) => {
@@ -75,7 +77,10 @@ const Result = ({
         return;
       }
       const url = urlList[urlPosition + count];
-
+      // if (url === undefined) {
+      //   return;
+      // }
+      // console.log({ url }, { urlPosition }, { count });
       fetch(`${process.env.REACT_APP_BASE_URL}${url}`)
         .then((response) => response.json())
         .then((data) => {
@@ -84,14 +89,17 @@ const Result = ({
             getLateCollection(data[regId.toString()]);
             setLatePeriod(periods[urlPosition + count]);
           }
+        })
+        .catch((err) => {
+          // history.push("/");
         });
     };
 
     getData();
 
-    if (Number(regId.substring(0, 4)) >= Number(period.split(" ")[1])) {
+    if (Number(regId?.substring(0, 4)) >= Number(period?.split(" ")[1])) {
     } else if (
-      Number(regId.substring(0, 5) === "20200") &&
+      Number(regId?.substring(0, 5) === "20200") &&
       periodName === "Nov/Dec 2021"
     ) {
       const s = step - 1;
