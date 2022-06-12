@@ -6,8 +6,28 @@ import Chart from "../../components/Chart/Chart";
 import calcGpa from "../../utils/GPACalc";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useContextSelector } from "../../context";
 
 const Analyzer = () => {
+  const { loggedIn, setLoggedIn } = useContextSelector();
+  const gotoHome = () => {
+    setModalIsVisible(false);
+    history.goBack();
+    history.goBack();
+    history.goBack();
+  };
+
+  useEffect(() => {
+    const cleanup = () => {
+      if (Object.keys(collection).length <= 0 && loggedIn) {
+        setLoggedIn(() => false);
+        gotoHome();
+      }
+    };
+
+    return cleanup();
+  }, []);
+
   const { collection, lateCollection } = useSelector(
     (state) => state.collections
   );
@@ -19,13 +39,6 @@ const Analyzer = () => {
   const gpaPoint = calcGpa(collection);
   const lateGpaPoint = calcGpa(lateCollection);
   const history = useHistory();
-
-  const gotoHome = () => {
-    setModalIsVisible(false);
-    history.goBack();
-    history.goBack();
-    history.goBack();
-  };
 
   const disappear = () => {
     setModalIsVisible(false);

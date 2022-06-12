@@ -5,11 +5,13 @@ import Result from "./screens/Result/Result";
 import { AnimatePresence } from "framer-motion";
 import Form from "./screens/Form/Form";
 import Analyzer from "./screens/Analyzer/Analyzer";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Iframe from "./components/Iframe/Iframe";
+import { useContextSelector } from "./context";
 
 function AppRouter() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
+  const { loggedIn, setLoggedIn } = useContextSelector();
 
   useEffect(() => {
     setLoggedIn(true);

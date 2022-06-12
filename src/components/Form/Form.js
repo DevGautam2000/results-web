@@ -10,10 +10,8 @@ import { Button, TextField } from "@material-ui/core";
 import Modal from "../../components/Modal/Modal";
 import { periods, periodsSupplementary } from "../../utils/data";
 import { useHistory } from "react-router-dom";
-import { bindActionCreators } from "redux";
-import { useDispatch } from "react-redux";
-import { actionsCreators } from "../../state/actions";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import { useActionCreators } from "../../state/creators";
 
 export default function Form() {
   const useStyles = makeStyles((theme) => ({
@@ -97,9 +95,9 @@ export default function Form() {
     setErr(errText);
     setModalVisibility(isVisible);
   };
-  const dispatch = useDispatch();
+
   const { getCollection, getLateCollection, setPeriod, setLatePeriod } =
-    bindActionCreators(actionsCreators, dispatch);
+    useActionCreators();
 
   useEffect(() => {
     //as the data is in state we need to remove it;
@@ -112,8 +110,8 @@ export default function Form() {
   }, []);
 
   const handleChange = (event, newAlignment) => {
-    setPeriodType(()=>newAlignment);
-    setPeriodName(()=>"");
+    setPeriodType(() => newAlignment);
+    setPeriodName(() => "");
   };
 
   return (
