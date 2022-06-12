@@ -2,13 +2,15 @@ import React from "react";
 import style from "./iframe.module.css";
 function Iframe() {
   return (
-    <div className={style.iframe_wrapper}>
-      <iframe
-        src="https://gpa.rishavanand.com/estimator.html"
-        className={style.iframe}
-        title="gpa.rishavanand.com/estimator.html"
-      ></iframe>
-      <div>
+    <>
+      <div className={style.iframe_wrapper}>
+        <iframe
+          src="https://gpa.rishavanand.com/estimator.html"
+          className={style.iframe}
+          title="gpa.rishavanand.com/estimator.html"
+        ></iframe>
+      </div>
+      <div className={style.credit_wrapper}>
         credits{" "}
         <a
           target="_blank"
@@ -19,7 +21,7 @@ function Iframe() {
           @rishavanand
         </a>
       </div>
-    </div>
+    </>
   );
 }
 

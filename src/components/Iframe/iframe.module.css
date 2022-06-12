@@ -1,11 +1,15 @@
 .iframe_wrapper {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   justify-content: center;
 }
-
+.credit_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .iframe {
   border-radius: 10px;
   border: 0;
