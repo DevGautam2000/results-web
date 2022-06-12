@@ -79,7 +79,7 @@ const Analyzer = () => {
   const extractData = (iterable, int, ext, sub, label) => {
     Object.keys(iterable).map((subCode) => {
       if (subCode !== "name") {
-        label.push(subCode);
+        label.push(`${subCode}--${iterable[subCode]["sub"]}`);
         int.push(iterable[subCode]["int"]);
         ext.push(iterable[subCode]["ext"]);
         sub.push(iterable[subCode]["sub"]);
@@ -115,6 +115,9 @@ const Analyzer = () => {
             "rgba(255, 205, 86,0.8)",
             "rgba(54, 162, 235, 0.8)",
             "rgba(258, 105, 86,0.8)",
+            "rgba(255, 205, 86,0.8)",
+            "rgba(54, 162, 235, 0.8)",
+            "rgba(258, 105, 86,0.8)",
           ],
         },
         {
@@ -126,12 +129,38 @@ const Analyzer = () => {
             "rgba(75, 192, 192, 0.8)",
             "rgba(54, 162, 235, 0.8)",
             "rgba(255, 159, 64, 0.8)",
+            "rgba(75, 192, 192, 0.8)",
+            "rgba(54, 162, 235, 0.8)",
+            "rgba(255, 159, 64, 0.8)",
             "rgba(153, 102, 255, 0.8)",
             "rgba(201, 203, 207, 0.8)",
           ],
         },
       ],
     };
+  };
+  const options = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          title: function (tooltipItem) {
+            return tooltipItem[0]?.label.toString().split("--")[1];
+          },
+        },
+      },
+    },
+    scales: {
+      x: {
+        ticks: {
+          callback: function (label, _) {
+            return this.getLabelForValue(label).toString().split("--")[0];
+          },
+        },
+      },
+      y: {
+        beginAtZero: true,
+      },
+    },
   };
 
   const data = setChartData(labelsList, intList, extList);
@@ -145,6 +174,7 @@ const Analyzer = () => {
         periodName={lateperiod}
         data={late_data}
         collection={lateCollection}
+        options={options}
       />
     );
   }
@@ -167,7 +197,12 @@ const Analyzer = () => {
 
       {modalFunction === 1 ? (
         <div className={style.chart_container}>
-          <Chart periodName={period} data={data} collection={collection} />
+          <Chart
+            periodName={period}
+            data={data}
+            collection={collection}
+            options={options}
+          />
           {late_chart}
         </div>
       ) : null}
