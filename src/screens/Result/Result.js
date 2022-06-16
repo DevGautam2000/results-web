@@ -20,11 +20,7 @@ import Estimator from "../../components/Estimator/Estimator";
 import { useSelector } from "react-redux";
 import { useActionCreators } from "../../state/creators";
 
-const Result = ({
-  location: {
-    state: { regId, periodName, urlPosition, type },
-  },
-}) => {
+const Result = ({ location }) => {
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [modalIsVisible, setModalIsVisible] = useState(true);
 
@@ -33,11 +29,19 @@ const Result = ({
   const { collection } = useSelector((state) => state.collections);
   const { getCollection, getLateCollection, setPeriod, setLatePeriod } =
     useActionCreators();
-
+  const dummyState = Object.freeze({
+    regId: "",
+    periodName: "",
+    urlPosition: 0,
+    type: "",
+  });
+  const { regId, periodName, urlPosition, type } =
+    location?.state || dummyState;
   const { period, step } =
-    type === "semester"
+    type.length > 0 && type === "semester"
       ? periodsData[urlPosition]
       : periodsDataSupplementary[urlPosition];
+  const len = (o) => o.length <= 0;
 
   useEffect(() => {
     const modal = JSON.parse(window.localStorage.getItem("results-modal"));
@@ -49,6 +53,11 @@ const Result = ({
 
   useEffect(() => {
     let isUnmount = false;
+
+    if (len(regId) && len(type) && len(periodName) && urlPosition === 0) {
+      history.replace("/form");
+      return () => (isUnmount = true);
+    }
 
     const getData = async () => {
       const url =

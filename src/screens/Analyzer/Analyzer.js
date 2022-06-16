@@ -35,6 +35,11 @@ const Analyzer = () => {
     let visible, value;
     let isUnmount = false;
 
+    if (Object.keys(collection).length <= 0) {
+      history.replace("/form");
+      return () => (isUnmount = true);
+    }
+
     if (lateGpaPoint === undefined) {
       value = "Oh! looks like you have completed only one semester.";
       visible = true;
