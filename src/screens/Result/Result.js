@@ -74,7 +74,9 @@ const Result = ({ location }) => {
             getCollection(data[regId.toString()]);
             setPeriod(periodName);
           }
-          setLoaderIsVisible(() => false);
+          setTimeout(() => {
+            setLoaderIsVisible(() => false);
+          }, 200);
         })
         .catch((err) => {
           // history.push("/");
@@ -94,9 +96,10 @@ const Result = ({ location }) => {
         .then((response) => response.json())
         .then((data) => {
           if (!isUnmount) {
-            setLoaderIsVisible(false);
             getLateCollection(data[regId.toString()]);
             setLatePeriod(periods[urlPosition + count]);
+
+            setLoaderIsVisible(false);
           }
         })
         .catch((err) => {

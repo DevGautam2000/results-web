@@ -6,6 +6,7 @@ import Chart from "../../components/Chart/Chart";
 import calcGpa from "../../utils/GPACalc";
 import { useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useContextSelector } from "../../context";
 
 const Analyzer = () => {
   const gotoHome = () => {
@@ -15,9 +16,13 @@ const Analyzer = () => {
     history.goBack();
   };
 
+  // const { getFromLocalStorage, setLocalStorage } = useContextSelector();
   const { collection, lateCollection } = useSelector(
     (state) => state.collections
   );
+
+  // const { collection, lateCollection } =
+  //   collections.collection === {} ? getFromLocalStorage() : collections;
   const { period, lateperiod } = useSelector((state) => state.periods);
 
   const [modalIsVisible, setModalIsVisible] = useState(false);
@@ -30,6 +35,10 @@ const Analyzer = () => {
   const disappear = () => {
     setModalIsVisible(false);
   };
+  // useEffect(() => {
+  //   if (Object.keys(collection).length > 0)
+  //     setLocalStorage(collection, lateCollection);
+  // }, []);
 
   useEffect(() => {
     let visible, value;
