@@ -27,14 +27,14 @@ export default function calcGpa(collection) {
     decPoint = getPointFromGrade(collection[item]["grade"]);
     let gpa = null;
     if (item !== "name" && item.substring(2, 4) !== "18") {
-      if (decPoint >= 0) {
+      if (decPoint >= 0 && collection[item]["grade"][0] !== "P") {
         const cr = collection[item]["credit"].toString().split("/");
         decCredit = Number(cr[1] || cr[0]);
         totalPoint += decPoint * decCredit;
         totalCredit += decCredit;
       }
       gpa = totalPoint / totalCredit;
-      gpa = Math.round(gpa * 100) / 100.0;
+      gpa = Math.round(gpa * 100) / 100;
     }
     return gpa || 0;
   });

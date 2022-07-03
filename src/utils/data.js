@@ -47,7 +47,6 @@ const developerData = [
   },
 ];
 
-// 202000001 nov/dec 2020 === 0
 const periodsData = [
   { period: "May/June 2022", step: 2 },
   { period: "Jan/Feb 2022", step: 0 },
