@@ -48,6 +48,7 @@ const developerData = [
 ];
 
 const periodsData = [
+  { period: "June/July 2022", step: 2 },
   { period: "May/June 2022", step: 2 },
   { period: "Jan/Feb 2022", step: 0 },
   { period: "Nov/Dec 2021", step: 2 },
@@ -89,6 +90,7 @@ const periodsDataSupplementary = [
 const periods = periodsData.map((period) => period.period);
 const periodsSupplementary = periodsDataSupplementary.map((per) => per.period);
 const urlList = [
+  "/22.june_july_2022.json",
   "/22.may_june_2022.json",
   "/22.jan_feb_2022.json",
   "/21.nov_dec_2021.json",
