@@ -1,0 +1,43 @@
+
+  @media (min-width: 1050px) {
+    .analyzer_button {
+      background: #249ee5;
+      box-shadow: 0 0 10px #3333;
+      border-radius: 8px;
+      border: 0;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      height: 50px;
+      width: 50px;
+    }
+    
+    .analyzer_button:hover {
+      box-shadow: 0 0 20px #3333;
+    }
+    .analyzer_button:active {
+      transform: scale(0.98);
+    }
+    .analyzer_button > svg {
+      width: 60% !important;
+      height: 60% !important;
+    }
+  }
+  
+  /* changed this part */
+  @media (max-width: 1049px) {
+    .analyzer_button {
+      display: block;
+      background: #249ee5;
+      box-shadow: 0 0 10px #3333;
+      border-radius: 8px;
+      border: 0;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      height: 60px;
+      width: 60px;
+      margin-bottom: 20px;
+    }
+  }
+  

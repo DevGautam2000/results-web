@@ -12,6 +12,7 @@
   position: relative;
 }
 
+
 .navigateBack {
   height: 30px;
   width: 25px;
@@ -109,10 +110,9 @@
 }
 @media (max-width: 750px) {
   .title {
-    width: 100%;
-    text-align: center;
-    position: relative;
-    left: -50px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .navigateBack {

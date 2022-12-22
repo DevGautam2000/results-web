@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
 import Estimator from "../../components/Estimator/Estimator";
 import { useSelector } from "react-redux";
 import { useActionCreators } from "../../state/creators";
-
+import AnalyzerButton from "../../components/AnalyzerButton/AnalyzerButton";
 const Result = ({ location }) => {
   const [loaderIsVisible, setLoaderIsVisible] = useState(true);
   const [modalIsVisible, setModalIsVisible] = useState(true);
@@ -111,9 +111,8 @@ const Result = ({ location }) => {
 
     if (Number(regId?.substring(0, 4)) >= Number(period?.split(" ")[1])) {
     } else if (
-      (blackList.length > 0 && 
-      blackList.includes(regId?.substring(0, 5)) ||
-      blackList.includes(regId?.substring(0, 4)))
+      (blackList.length > 0 && blackList.includes(regId?.substring(0, 5))) ||
+      blackList.includes(regId?.substring(0, 4))
     ) {
       const s = step - 1;
       getLateData(s);
@@ -221,7 +220,11 @@ const Result = ({ location }) => {
             />
           </div>
         ) : null}
-        <Estimator className={style.estimator} />
+
+        <div className={style.wrapper}>
+          <AnalyzerButton  />
+          <Estimator />
+        </div>
       </>
     );
   } else {

@@ -2,11 +2,14 @@ import React from "react";
 import style from "./Chart.module.css";
 import { Bar } from "react-chartjs-2";
 
-const Chart = ({ periodName, data, options }) => {
+const Chart = ({ periodName, data, options }) => {  
+
   return (
     <div className={style.container}>
       <span className={style.title}>{periodName}</span>
-      <div style={{ position: "relative", height: "100%", width: "100%" }}>
+      <div 
+      style={{ height: "100%", width: "100%" }}
+      >
         <Bar data={data} options={options} className={style.chart} />
       </div>
       {/* <div className={style.keys}>

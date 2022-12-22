@@ -69,13 +69,15 @@ const Analyzer = () => {
       setModalFunction(1);
     }
 
-    window.addEventListener("resize", () => {
-      if (window.innerWidth < 1450 && !isUnmount) {
-        setModalValue("This screen is restricted for mobile view");
-        setModalIsVisible(true);
-        setModalFunction(0);
-      }
-    });
+    // window.addEventListener("resize", () => {
+    //   if (window.innerWidth < 1450 && !isUnmount) {
+    //     setModalValue("This screen is restricted for mobile view");
+    //     setModalIsVisible(true);
+    //     setModalFunction(0);
+    //   }
+    // });
+
+    
 
     return () => (isUnmount = true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -112,6 +114,7 @@ const Analyzer = () => {
       late_subList,
       late_labelsList
     );
+  
 
   const setChartData = (labelsList, intList, extList) => {
     return {
@@ -154,6 +157,7 @@ const Analyzer = () => {
     };
   };
   const options = {
+    responsive:true,
     plugins: {
       tooltip: {
         callbacks: {
@@ -192,6 +196,7 @@ const Analyzer = () => {
       />
     );
   }
+  
 
   return (
     <div className={style.analyzer}>

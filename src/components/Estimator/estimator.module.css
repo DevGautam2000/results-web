@@ -1,7 +1,3 @@
-.iframebutton {
-  display: none;
-}
-
 @media (min-width: 1050px) {
   .iframebutton {
     display: block;
@@ -43,13 +39,11 @@
 }
 
 /* changed this part */
-@media (max-width: 900px) {
+@media (max-width: 1049px) {
   .iframebutton {
     display: block;
     background: #f56099;
-    position: fixed;
-    right: 3vw;
-    bottom: 6vh;
+
     box-shadow: 0 0 10px #3333;
     border-radius: 8px;
     border: 0;

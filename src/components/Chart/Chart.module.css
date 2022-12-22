@@ -1,3 +1,7 @@
+:root{
+  --con-height : 100%;
+}
+
 .container {
   text-align: center;
   padding: 3%;
@@ -7,13 +11,14 @@
   font-family: "Ubuntu", sans-serif;
   cursor: pointer;
   width: 50%;
-  height: 60%;
+  height: fit-content;
   box-shadow: 0 1px 3px rgb(16, 66, 122);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   position: relative;
+  user-select: none;
 }
 
 .chart {
@@ -44,8 +49,19 @@
   display: block;
 } */
 
-@media (max-width: 1449px) {
+@media (max-width: 900px) {
   .container {
-    display: none;
+    width: 90vw !important;
+    height:fit-content;
+  }
+
+  /* .container > div:nth-of-type(1){
+    height: 100% !important;
+    width: 100% !important;
+  } */
+
+  .chart {
+    height: 100% !important;
+    width: 100% !important;
   }
 }

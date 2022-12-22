@@ -13,5 +13,14 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -60%);
+  transform: translate(-50%, -55%);
+}
+
+@media (max-width: 990px) {
+  .chart_container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transform: translate(-50%, -50%);
+  }
 }

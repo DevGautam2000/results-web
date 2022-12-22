@@ -65,6 +65,13 @@
   font-size: 15px;
 }
 
+
+
+@media (max-width: 990px) {
+  .message {
+    font-size: 1rem;
+  }
+}
 @media (max-width: 750px) {
   .container {
     width: 300px;
@@ -75,6 +82,7 @@
     width: 260px;
   }
 }
+
 
 /* Animations to fade the message container in and out */
 @-webkit-keyframes fadein {
