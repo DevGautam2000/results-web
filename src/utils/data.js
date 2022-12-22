@@ -17,7 +17,7 @@ const developerData = [
   {
     id: 2,
     src: portfolio,
-    link: "https://inginer.me",
+    link: "https://inginer.tech",
     name: "portfolio",
   },
   {
@@ -48,29 +48,30 @@ const developerData = [
 ];
 
 const periodsData = [
-  { period: "June/July 2022", step: 2 },
-  { period: "May/June 2022", step: 2 },
-  { period: "Jan/Feb 2022", step: 0 },
-  { period: "Nov/Dec 2021", step: 2 },
-  { period: "Aug-Sem 2021", step: 2 },
-  { period: "May/June 2021", step: 2 },
-  { period: "March-Sem 2021", step: 0 },
-  { period: "Nov/Dec 2020", step: 1 },
-  { period: "May/June 2020", step: 1 },
-  { period: "Nov/Dec 2019", step: 1 },
-  { period: "April/May 2019", step: 1 },
-  { period: "Nov/Dec 2018", step: 1 },
-  { period: "April/May 2018", step: 1 },
-  { period: "Nov/Dec 2017", step: 0 },
+  { period: "Nov/Dec 2022", step: 2 ,blackList:["2021"]},
+  { period: "June/July 2022", step: 2 ,blackList:[]},
+  { period: "May/June 2022", step: 2,blackList:[] },
+  { period: "Jan/Feb 2022", step: 0 ,blackList:[]},
+  { period: "Nov/Dec 2021", step: 2 ,blackList:[]},
+  { period: "Aug-Sem 2021", step: 2 ,blackList:[]},
+  { period: "May/June 2021", step: 2 ,blackList:[]},
+  { period: "March-Sem 2021", step: 0 ,blackList:[]},
+  { period: "Nov/Dec 2020", step: 1 ,blackList:["20200"]},
+  { period: "May/June 2020", step: 1 ,blackList:[]},
+  { period: "Nov/Dec 2019", step: 1 ,blackList:[]},
+  { period: "April/May 2019", step: 1 ,blackList:[]},
+  { period: "Nov/Dec 2018", step: 1 ,blackList:[]},
+  { period: "April/May 2018", step: 1 ,blackList:[]},
+  { period: "Nov/Dec 2017", step: 0 ,blackList:[]},
 ];
 const periodsDataSupplementary = [
-  { period: "Jan/Feb 2022", step: 0 },
-  { period: "Jul/Aug 2021", step: 0 },
-  { period: "Jan 2021", step: 0 },
-  { period: "Jul/Aug 2020", step: 0 },
-  { period: "Jan 2020", step: 0 },
-  { period: "Jul/Aug 2019", step: 0 },
-  { period: "Jan 2019", step: 0 },
+  { period: "Jan/Feb 2022", step: 0 ,blackList:[]},
+  { period: "Jul/Aug 2021", step: 0 ,blackList:[]},
+  { period: "Jan 2021", step: 0 ,blackList:[]},
+  { period: "Jul/Aug 2020", step: 0 ,blackList:[]},
+  { period: "Jan 2020", step: 0 ,blackList:[]},
+  { period: "Jul/Aug 2019", step: 0 ,blackList:[]},
+  { period: "Jan 2019", step: 0 ,blackList:[]},
 ];
 
 /* 
@@ -90,6 +91,7 @@ const periodsDataSupplementary = [
 const periods = periodsData.map((period) => period.period);
 const periodsSupplementary = periodsDataSupplementary.map((per) => per.period);
 const urlList = [
+  "/22.nov_dec_2022.json",
   "/22.june_july_2022.json",
   "/22.may_june_2022.json",
   "/22.jan_feb_2022.json",

@@ -37,7 +37,7 @@ const Result = ({ location }) => {
   });
   const { regId, periodName, urlPosition, type } =
     location?.state || dummyState;
-  const { period, step } =
+  const { period, step, blackList } =
     type.length > 0 && type === "semester"
       ? periodsData[urlPosition]
       : periodsDataSupplementary[urlPosition];
@@ -111,8 +111,9 @@ const Result = ({ location }) => {
 
     if (Number(regId?.substring(0, 4)) >= Number(period?.split(" ")[1])) {
     } else if (
-      Number(regId?.substring(0, 5) === "20200") &&
-      periodName === "Nov/Dec 2021"
+      (blackList.length > 0 && 
+      blackList.includes(regId?.substring(0, 5)) ||
+      blackList.includes(regId?.substring(0, 4)))
     ) {
       const s = step - 1;
       getLateData(s);
