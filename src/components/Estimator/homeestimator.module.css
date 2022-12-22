@@ -1,0 +1,59 @@
+@media (min-width: 1050px) {
+    .iframebutton {
+      display: block;
+      background: #f56099;
+      position: fixed;
+      right: 3vw;
+      bottom: 6vh;
+      box-shadow: 0 0 10px #3333;
+      border-radius: 8px;
+      border: 0;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      height: 50px;
+      width: 50px;
+    }
+    .iframebutton:hover::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      right: 110%;
+      top: 50%;
+      font-size: 0.7rem;
+      width: max-content;
+      border-radius: 5px;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px 8px;
+    }
+    .iframebutton:hover {
+      box-shadow: 0 0 20px #3333;
+    }
+    .iframebutton:active {
+      transform: scale(0.98);
+    }
+    .iframebutton > svg {
+      width: 60% !important;
+      height: 60% !important;
+    }
+  }
+  
+  /* changed this part */
+  @media (max-width: 1049px) {
+    .iframebutton {
+      display: block;
+      background: #f56099;
+      position: fixed;
+      right: 3vh;
+      bottom: 6vh;
+      box-shadow: 0 0 10px #3333;
+      border-radius: 8px;
+      border: 0;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      height: 60px;
+      width: 60px;
+    }
+  }
+  

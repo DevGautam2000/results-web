@@ -6,7 +6,7 @@ import style from "./Home.module.css";
 import { homeCardData } from "../../utils/data";
 import { Link } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
-import Estimator from "../../components/Estimator/Estimator";
+import Estimator from "../../components/Estimator/homeEstimator";
 
 export default function Home() {
   useEffect(() => {
