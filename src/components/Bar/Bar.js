@@ -42,6 +42,19 @@ const Bar = ({
     },
   ];
 
+  
+  const MyComponent = ({ className }) => {
+    return (
+      <div className={className}>
+        <input type="checkbox" id="dark-mode-toggle" className="dark-mode-toggle" />
+        <label for="dark-mode-toggle" className="dark-mode-label">Dark Mode</label>
+      </div>
+    );
+  };
+
+
+
+
   return (
     <>
       <div className={style.bar}>
