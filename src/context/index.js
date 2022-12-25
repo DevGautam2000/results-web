@@ -38,6 +38,20 @@ function ContextProvider() {
   );
 }
 
-const useContextSelector = () => useContext(Context);
+const App = () => {
+  const [isDarkModeEnabled, setDarkMode] = useState(false);
 
-export { ContextProvider, useContextSelector };
+  const toggleDarkMode = () => {
+    setDarkMode(!isDarkModeEnabled);
+  };
+
+  return (
+    <div className={isDarkModeEnabled ? 'dark-mode' : ''}>
+      <input type="checkbox" id="dark-mode-toggle" onChange={toggleDarkMode} />
+      <label htmlFor="dark-mode-toggle">Dark Mode</label>
+    </div>
+  );
+};
+
+export default App;
+
