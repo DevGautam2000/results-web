@@ -10,3 +10,24 @@
 html {
   overflow-x: hidden;
 }
+
+:root {
+  --dark-mode-text-color: #ffffff;
+  --dark-mode-background-color: #333333;
+  --dark-mode-primary-color: #0084ff;
+}
+
+.dark-mode {
+  color: var(--dark-mode-text-color);
+  background-color: var(--dark-mode-background-color);
+}
+
+.dark-mode .button {
+  color: var(--dark-mode-text-color);
+  background-color: var(--dark-mode-primary-color);
+}
+
+.dark-mode .text {
+  color: var(--dark-mode-text-color);
+}
+
