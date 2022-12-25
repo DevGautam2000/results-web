@@ -1,6 +1,6 @@
 # Results 
 
-### This repo is now open for contributions
+### This repo is now open for contributions check [CONTRIBUTION.md](./CONTRIBUTION.md)
 
 
 
