@@ -4,7 +4,7 @@ import arrow from "../../assets/left_arrow.png";
 import play from "../../assets/google-play.svg";
 import source from "../../assets/source.svg";
 import { useHistory } from "react-router-dom";
-import CustomizedSwitches from "../MUI_switch/mui_switch";
+import CustomizedSwitches from "../MUI_switch/Mui_switch";
 
 const Bar = ({
   title,
@@ -46,7 +46,7 @@ const Bar = ({
   return (
     <>
       <div className={style.bar}>
-        <CustomizedSwitches />
+        <CustomizedSwitches/>
         {arrowIsVisible ? (
           <div
             onClick={() => {

@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
+import { useState } from 'react';
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -51,12 +52,21 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
+
 export default function CustomizedSwitches() {
+  
+  const [theme, setTheme] = useState('rgb(10,25,41)')
+
+  const switchmode = () => {
+    theme === 'whitesmoke' ? setTheme('rgb(10,25,41)') : setTheme('whitesmoke')
+    document.body.style.backgroundColor = theme
+    document.body.style.transition = "all 0.3s ease-in-out"
+  }
   return (
     <FormGroup>
       <FormControlLabel
-        control={<MaterialUISwitch sx={{ m: 1 }} 
-        defaultChecked />}
+        control={<MaterialUISwitch  sx={{ m: 1 }} />}
+        onChange={switchmode}
         label=""
       />
     </FormGroup>
