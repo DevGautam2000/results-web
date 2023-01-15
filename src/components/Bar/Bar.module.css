@@ -40,6 +40,16 @@
   overflow: hidden;
 }
 
+.overlay_dark{
+  width: 100%;
+  padding: 10px;
+  height: 180px;
+  background: red;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
 .source {
   position: absolute;
   right: 2px;
