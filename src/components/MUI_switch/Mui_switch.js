@@ -58,8 +58,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 export default function CustomizedSwitches() {
   
   const initialState = localStorage.getItem('switch') === 'enabled' ? true : false;
-
-  const [theme, setTheme] = useState('rgb(10,25,41)')
+  const initialTheme = localStorage.getItem('theme') === 'whitesmoke' ? 'rgb(10,25,41)' : 'whitesmoke' 
+  const [theme, setTheme] = useState(initialTheme)
   const [isOn, setIsOn] = useState(initialState)
 
   const switchmode = () => {
@@ -67,7 +67,8 @@ export default function CustomizedSwitches() {
     localStorage.setItem('switch', (isOn === true) ? 'disabled' : 'enabled');
 
     theme === 'whitesmoke' ? setTheme('rgb(10,25,41)') : setTheme('whitesmoke')
-    console.log(theme)
+
+    localStorage.setItem('theme', initialTheme);
     
     document.body.style.backgroundColor = theme
     document.body.style.transition = "all 0.3s ease-in-out"
