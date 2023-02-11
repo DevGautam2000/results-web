@@ -67,6 +67,7 @@ export default function CustomizedSwitches() {
     localStorage.setItem('switch', (isOn === true) ? 'disabled' : 'enabled');
 
     theme === 'whitesmoke' ? setTheme('rgb(10,25,41)') : setTheme('whitesmoke')
+    console.log(theme)
     
     document.body.style.backgroundColor = theme
     document.body.style.transition = "all 0.3s ease-in-out"
@@ -74,7 +75,7 @@ export default function CustomizedSwitches() {
   return (
     <FormGroup>
       <FormControlLabel
-        control={<MaterialUISwitch  sx={{ m: 1 }} checked={isOn}/>}
+        control={<MaterialUISwitch checked={isOn}/>}
         onChange={switchmode}
         label=""
       />
