@@ -7,7 +7,7 @@ const Footer = () => {
       <div>
         Results Fetched From{" "}
         <a
-          href="https://erp.smu.edu.in/SMITRESULTAPP/"
+          href="https://ecm.smtech.in/ecm/login.aspx?api_page=result"
           target="_blank"
           rel="noreferrer"
           style={{ color: "#5454ec" }}
