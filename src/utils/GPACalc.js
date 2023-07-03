@@ -23,10 +23,19 @@ export default function calcGpa(collection) {
     }
   };
 
+  function isMajor(item){
+    return "CS1875" === item 
+  }
+  function isNotMinor(item){
+    if("CS1875" === item ) return false
+    return (item.substring(2, 4) !== "18")
+  }
+ 
   const finalMarks = Object.keys(collection).map((item) => {
     decPoint = getPointFromGrade(collection[item]["grade"]);
     let gpa = null;
-    if (item !== "name" && item.substring(2, 4) !== "18") {
+
+    if ( isMajor(item) || (item !== "name" && isNotMinor(item)) ) {
       if (decPoint >= 0 && collection[item]["grade"][0] !== "P") {
         const cr = collection[item]["credit"].toString().split("/");
         decCredit = Number(cr[1] || cr[0]);

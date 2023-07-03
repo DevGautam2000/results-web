@@ -7,12 +7,12 @@ const Footer = () => {
       <div>
         Results Fetched From{" "}
         <a
-          href="https://result.smtech.in/"
+          href="https://erp.smu.edu.in/SMITRESULTAPP/"
           target="_blank"
           rel="noreferrer"
           style={{ color: "#5454ec" }}
         >
-          result.smtech.in
+          erp.smu.edu
         </a>
       </div>
       <div>NOTE: Developer is not responsible for accuracy of marks</div>
